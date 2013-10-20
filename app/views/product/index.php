@@ -9,7 +9,7 @@
 <div class="content" id="product">
   <div class="clear"></div>
   <div class="toolbar">
-		<h2><a href="<?php echo URL::to('contact')?>">Hire me for your project</a></h2>
+		<h2><a href="<?php echo url('contact')?>">Hire me for your project</a></h2>
   </div>	
   <section class="alpha">
     <h4 class="header1">Axcoto Slideshow</h4>

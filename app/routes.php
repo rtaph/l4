@@ -17,3 +17,8 @@ Route::get('/', function()
 });
 
 Route::get('/', 'HomeController@showWelcome');
+Route::get('/contact', 'HomeController@showContact');
+Route::get('/shop', 'ShopController@showWelcome');
+Route::get('/portfolio', 'PortfolioController@showWelcome');
+Route::get('/lab', 'LabController@showWelcome');
+Route::get('/product', 'ProductController@showWelcome');

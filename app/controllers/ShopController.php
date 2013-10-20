@@ -1,27 +1,38 @@
 <?php
 
-class HomeController extends BaseController {
+class ShopController extends BaseController {
 
 	/*
 	|--------------------------------------------------------------------------
-	| Default Home Controller
+	| The Default Controller
 	|--------------------------------------------------------------------------
 	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
+	| Instead of using RESTful routes and anonymous functions, you might wish
+	| to use controllers to organize your application API. You'll love them.
 	|
-	|	Route::get('/', 'HomeController@showWelcome');
+	| This controller responds to URIs beginning with "home", and it also
+	| serves as the default controller for the application, meaning it
+	| handles requests to the root of the application.
+	|
+	| You can respond to GET requests to "/home/profile" like so:
+	|
+	|		public function action_profile()
+	|		{
+	|			return "This is your profile!";
+	|		}
+	|
+	| Any extra segments are passed to the method as parameters:
+	|
+	|		public function action_profile($id)
+	|		{
+	|			return "This is the profile for user {$id}.";
+	|		}
 	|
 	*/
 
-	public function showWelcomeOld()
+	public function showWelcome()
 	{
-		return View::make('hello');
-	}
-
-	public function showWelcome() {
-        $products = array(
+		$products = array(
             array(
                 'title' => 'WordPress Full Screen Gallery',
                 'file' => 'wpfss.png',
@@ -114,14 +125,9 @@ class HomeController extends BaseController {
             ),
         );
 
-				return $this->layout->nest('content', 'home.index', array(
+        $this->layout->nest('content', 'shop.index', array(
             'products' => $products
         ));
-    }
-
-    public function showContact() {
-
-        $this->layout->nest('content', 'home.contact');
     }
 
 }

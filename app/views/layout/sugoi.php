@@ -8,7 +8,9 @@
 
         <title><?php echo $pageTitle ?></title>
 
-        <?php echo Asset::styles(); ?>
+        <?php echo HTML::style('css/reset.css'); ?>
+        <?php echo HTML::style('css/style.css'); ?>
+        <?php echo HTML::style('js/colorbox/colorbox.css'); ?>
 
         <meta property="og:title" content="Axcoto - We turn ideas into websites"/>
         <meta property="og:type" content="website"/>
@@ -26,31 +28,31 @@
     <body id="home">
         <div id="wrapper">
             <header>
-                <h2 id="logo"><a href="<?php echo URL::base() ?>">Axcoto</a></h2>
+                <h2 id="logo"><a href="<?php echo url() ?>">Axcoto</a></h2>
                 <nav>
                     <ul class="navigation" id="main-nav">
-                        <li <?php (URI::current() == '/' || URI::current() == 'frontpage') ? print('class="current"')  : print('')  ?>>
-                            <a href="<?php echo URL::base() ?>"><span>Home</span></a>
+                        <li <?php (Request::url() == '/' || Request::url() == 'frontpage') ? print('class="current"')  : print('')  ?>>
+                            <a href="<?php echo url() ?>"><span>Home</span></a>
                         </li>
 
-                        <li <?php URI::current() == 'shop' ? print('class="current"')  : print('')  ?>>
-                            <a href="<?php echo URL::to('shop') ?>"><span>Shop</span></a>
+                        <li <?php Request::url() == 'shop' ? print('class="current"')  : print('')  ?>>
+                            <a href="<?php echo url('shop') ?>"><span>Shop</span></a>
                         </li>
 
-                        <li <?php URI::current() == 'portfolio' ? print('class="current"')  : print('')  ?>>
-                            <a href="<?php echo URL::to('portfolio') ?>"><span>Work</span></a>
+                        <li <?php Request::url() == 'portfolio' ? print('class="current"')  : print('')  ?>>
+                            <a href="<?php echo url('portfolio') ?>"><span>Work</span></a>
                         </li>
 
-                        <li <?php URI::current() == 'lab' ? print('class="current"')  : print('')  ?>>
-                            <a href="<?php echo URL::to('lab') ?>"><span>Lab</span></a>
+                        <li <?php Request::url() == 'lab' ? print('class="current"')  : print('')  ?>>
+                            <a href="<?php echo url('lab') ?>"><span>Lab</span></a>
                         </li>
 
-                        <li <?php URI::current() == 'product' ? print('class="current"')  : print('')  ?>>
-                            <a href="<?php echo URL::to('product') ?>"><span>Product</span></a>
+                        <li <?php Request::url() == 'product' ? print('class="current"')  : print('')  ?>>
+                            <a href="<?php echo url('product') ?>"><span>Product</span></a>
                         </li>
 
-                        <li <?php URI::current() == 'contact' ? print('class="current"')  : print('')  ?>>
-                            <a href="<?php echo URL::to('contact') ?>"><span>Contact</span></a>
+                        <li <?php Request::url() == 'contact' ? print('class="current"')  : print('')  ?>>
+                            <a href="<?php echo url('contact') ?>"><span>Contact</span></a>
                         </li>
                         <li>
                             <a href="http://axcoto.com/blog"><span>Blog</span></a>
@@ -70,13 +72,13 @@
                         <p>
                             Axcoto is a one-man endeavor code item shop! 
                             We do custom works&amp; build tailor code stuff for sale to make the world go easier!
-                            <a href="<?php echo URL::to('shop') ?>">These code</a> are made aim to ready, easy to use.
+                            <a href="<?php echo url('shop') ?>">These code</a> are made aim to ready, easy to use.
                         </p>
 
                     </section>
 
                     <section class="beta">
-                        <h4 class="header2">Our <a href="<?php echo URL::to('contact') ?>">Apps&amp; tools</a></h4>
+                        <h4 class="header2">Our <a href="<?php echo url('contact') ?>">Apps&amp; tools</a></h4>
                         <p>
                             <a href="http://willingapp.com/">WillingApp</a>: Support/Helpdesk platform,&nbsp;
                             <a href="http://mangaandme.com/">Mangeandme</a>: Social network for manga lover,&nbsp; 
@@ -103,20 +105,20 @@
                         </p>
                         <nav>
                             <ul class="navigation" id="links">
-                                <li <?php URI::current() == 'frontpage' ? print('class="current"')  : print('')  ?>>
-                                    <a href="<?php echo URL::base() ?>"><span>Home</span></a>
+                                <li <?php Request::url() == 'frontpage' ? print('class="current"')  : print('')  ?>>
+                                    <a href="<?php echo url() ?>"><span>Home</span></a>
                                 </li>
 
-                                <li <?php URI::current() == 'shop' ? print('class="current"')  : print('')  ?>>
-                                    <a href="<?php echo URL::to('shop') ?>"><span>Shop</span></a>
+                                <li <?php Request::url() == 'shop' ? print('class="current"')  : print('')  ?>>
+                                    <a href="<?php echo url('shop') ?>"><span>Shop</span></a>
                                 </li>
 
-                                <li <?php URI::current() == 'portfolio' ? print('class="current"')  : print('')  ?>>
-                                    <a href="<?php echo URL::to('portfolio') ?>"><span>Work</span></a>
+                                <li <?php Request::url() == 'portfolio' ? print('class="current"')  : print('')  ?>>
+                                    <a href="<?php echo url('portfolio') ?>"><span>Work</span></a>
                                 </li>
 
-                                <li <?php URI::current() == 'contact' ? print('class="current"')  : print('')  ?>>
-                                    <a href="<?php echo URL::to('contact') ?>"><span>Contact</span></a>
+                                <li <?php Request::url() == 'contact' ? print('class="current"')  : print('')  ?>>
+                                    <a href="<?php echo url('contact') ?>"><span>Contact</span></a>
                                 </li>
 
                             </ul>
@@ -135,6 +137,10 @@
 
             <canvas id="canvas" resize></canvas>            
         </div> <!-- End #wrapper -->
-        <div id="overlay"></div>
-        <?php echo Asset::scripts(); ?>
+        <div id="overlay"></div>        
+        <?php echo HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');?>
+        <?php //echo HTML::script('js/lib/paper.js');?>
+        <?php echo HTML::script('js/transform/dist/jquery.transform-0.9.3.min.js');?>
+        <?php echo HTML::script('js/axcoto.js');?>
+        <?php //echo HTML::script('js/canvas.js');?>
     </body></html>

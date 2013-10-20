@@ -18,7 +18,7 @@
 		  </p>
 		  <p>Looking foward to chat with you!</p>
       
-		<form action="<?php echo URL::base()?>contact" method="post" name="ajax_contact_form" id="email-contact-form">
+		<form action="<?php echo url()?>contact" method="post" name="ajax_contact_form" id="email-contact-form">
 			<fieldset>
 				<ul>
 					<li>

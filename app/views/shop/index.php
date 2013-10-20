@@ -24,9 +24,9 @@
             <li>
                 <figure>
                     <dl>
-                        <dt>
+                        <dt>                            
                         <a class="thumb" href="<?php echo $products[$index]['demo']?>" target="blank">
-                            <img src="<?php echo URL::to_asset('media/product/small/' . $products[$index]['file']) ?>" />
+                            <?php echo HTML::image('media/product/small/' . $products[$index]['file']);?>
                         </a>
                         </dt>
                         <dd>

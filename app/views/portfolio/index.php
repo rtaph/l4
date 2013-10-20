@@ -1,8 +1,8 @@
 <hgroup class="intro">
-    <h3>See what we done before <a href="<?php echo URL::to('contact') ?>">hire us</a></h3>
+    <h3>See what we done before <a href="<?php echo url('contact') ?>">hire us</a></h3>
     <h4>
         Wow, we must say you are absolutely correct when wanting to take a look on our work. We have a strong passion in our works. It's not just a "job", it's a career.
-        If you are interesed in our works, don't hesitate to <a href="<?php echo URL::to('contact') ?>">shot us</a> an email! 
+        If you are interesed in our works, don't hesitate to <a href="<?php echo url('contact') ?>">shot us</a> an email! 
         Again, we emphasize that any your imagination can go live :P. 
     </h4>
 
@@ -31,7 +31,7 @@
             <?php $pos = fmod($index, 4); ?>
             <li class="<?php echo $pos == 0 ? 'start' : ($pos == 3 ? 'last' : '') ?> <?php echo join(' ', $portfolio[$index]['type']) ?>">
                 <a rel="portfolio" href="<?php echo $portfolio[$index]['file'] ?>" class="project-thumb">
-                    <img src="<?php echo URL::to_asset('media/portfolio/thumbs/' . $portfolio[$index]['file'])?>" alt="http:/<?php echo $portfolio[$index]['url'] ?>" />
+                    <img src="<?php echo URL::asset('media/portfolio/thumbs/' . $portfolio[$index]['file'])?>" alt="http:/<?php echo $portfolio[$index]['url'] ?>" />
                 </a>
             </li>
         <?php endfor ?>
@@ -43,7 +43,7 @@
             <?php $pos = fmod($index, 4); ?>
             <li class="<?php echo $pos == 0 ? 'start' : ($pos == 3 ? 'last' : '') ?> <?php echo join(' ', $portfolio[$index]['type']) ?>">
                                 <a rel="portfolio" href="<?php echo $portfolio[$index]['file'] ?>" class="project-thumb">
-                    <img src="<?php echo URL::to_asset('media/portfolio/thumbs/' . $portfolio[$index]['file'])?>" alt="http:/<?php echo $portfolio[$index]['url'] ?>" />
+                    <img src="<?php echo URL::asset('media/portfolio/thumbs/' . $portfolio[$index]['file'])?>" alt="http:/<?php echo $portfolio[$index]['url'] ?>" />
                 </a>
             </li>
         <?php endfor ?>

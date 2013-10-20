@@ -1,26 +1,35 @@
 <?php
 
-class HomeController extends BaseController {
+class ProductController extends BaseController {
+    /*
+      |--------------------------------------------------------------------------
+      | The Default Controller
+      |--------------------------------------------------------------------------
+      |
+      | Instead of using RESTful routes and anonymous functions, you might wish
+      | to use controllers to organize your application API. You'll love them.
+      |
+      | This controller responds to URIs beginning with "home", and it also
+      | serves as the default controller for the application, meaning it
+      | handles requests to the root of the application.
+      |
+      | You can respond to GET requests to "/home/profile" like so:
+      |
+      |		public function action_profile()
+      |		{
+      |			return "This is your profile!";
+      |		}
+      |
+      | Any extra segments are passed to the method as parameters:
+      |
+      |		public function action_profile($id)
+      |		{
+      |			return "This is the profile for user {$id}.";
+      |		}
+      |
+     */
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
-
-	public function showWelcomeOld()
-	{
-		return View::make('hello');
-	}
-
-	public function showWelcome() {
+    public function showWelcome() {
         $products = array(
             array(
                 'title' => 'WordPress Full Screen Gallery',
@@ -114,14 +123,9 @@ class HomeController extends BaseController {
             ),
         );
 
-				return $this->layout->nest('content', 'home.index', array(
+        $this->layout->nest('content', 'product.index', array(
             'products' => $products
         ));
-    }
-
-    public function showContact() {
-
-        $this->layout->nest('content', 'home.contact');
     }
 
 }
