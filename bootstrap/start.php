@@ -28,7 +28,7 @@ $app->redirectIfTrailingSlash();
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('bach-van-thanh'),
+	'local' => array('axcoto.dev'),
 
 ));
 
