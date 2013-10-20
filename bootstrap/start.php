@@ -28,7 +28,7 @@ $app->redirectIfTrailingSlash();
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('axcoto.dev'),
+	'local' => array('your-machine-name'),
 
 ));
 

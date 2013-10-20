@@ -4,8 +4,7 @@
 	"keywords": ["axcoto", "laravel"],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.0.*",
-		"codesleeve/asset-pipeline": "dev-master"
+		"laravel/framework": "4.0.*"
 	},
 	"autoload": {
 		"classmap": [
