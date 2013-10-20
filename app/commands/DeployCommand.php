@@ -11,21 +11,21 @@ use App;
 * the folder that need to be updated.
 * 
 */
-class ChownCommand extends Command {
+class DeployCommand extends Command {
 
 	/**
 	 * The console command name.
 	 *
 	 * @var string
 	 */
-	protected $name = 'srv:chown';
+	protected $name = 'srv:deploy';
 
 	/**
 	 * The console command description.
 	 *
 	 * @var string
 	 */
-	protected $description = 'Chown on server to user/group that are specified as argument';
+	protected $description = 'Simple task to deploy. Just for fun.';
 
 	/**
 	 * Create a new command instance.
@@ -44,16 +44,11 @@ class ChownCommand extends Command {
 	 */
 	public function fire()
 	{
-		$current_folder = `pwd`;
-		$this->info('Current folder' . $current_folder);
-		$user = $this->argument('u');
-		$group = $this->argument('g');
-		$storage_folder = storage_path();
-		$command = "chown -R {$user}:{$group} {$storage_folder}/{sessions,meta,cache}";
-		$this->info('Chown with cmd: ' . $command);
-		//$environment = App::environment();
-		$this->info(shell_exec($command));
-		$this->error(shell_exec("ls -la {$storage_folder}/sessions"));
+		//SSH to server
+
+		//Checkout the code
+
+		//Restart nginx. fpm if needed.	
 	}
 
 	/**
