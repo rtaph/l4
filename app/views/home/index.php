@@ -24,7 +24,7 @@
                         <dl>
                             <dt>
                             <a class="thumb" href="http://codecanyon.net/user/kureikain/portfolio?ref=kureikain" target="blank">
-                                <img src="<?php echo asset('http://ass' . (fmod($key, 4)+1) . '.axcoto.com/media/product/small/' . $item['file']) ?>" />
+                                <img class="lazy" src="<?php echo asset('http://ass' . (fmod($key, 4)+1) . '.axcoto.com/media/product/small/' . $item['file']) ?>" />
                             </a>
                             </dt>
                         </dl>
