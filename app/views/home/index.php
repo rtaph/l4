@@ -17,14 +17,14 @@
         <ul id="latest-products" class="products">
             <?php
             $products = array_slice($products, 0, 4);
-            foreach ($products as $item) :
+            foreach ($products as $key=>$item) :
                 ?>
                 <li>
                     <figure>
                         <dl>
                             <dt>
                             <a class="thumb" href="http://codecanyon.net/user/kureikain/portfolio?ref=kureikain" target="blank">
-                                <img src="<?php echo asset('http://ass' . rand(1,5) . '.axcoto.com/media/product/small/' . $item['file']) ?>" />
+                                <img src="<?php echo asset('http://ass' . (fmod($key, 5)+1) . '.axcoto.com/media/product/small/' . $item['file']) ?>" />
                             </a>
                             </dt>
                         </dl>
