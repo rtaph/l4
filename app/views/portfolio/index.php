@@ -31,7 +31,7 @@
             <?php $pos = fmod($index, 4); ?>
             <li class="<?php echo $pos == 0 ? 'start' : ($pos == 3 ? 'last' : '') ?> <?php echo join(' ', $portfolio[$index]['type']) ?>">
                 <a rel="portfolio" href="<?php echo $portfolio[$index]['file'] ?>" class="project-thumb">
-                    <img src="<?php echo URL::asset('http://ass' . (fmod($index,5)+1) . '.axcoto.com/media/portfolio/thumbs/' . $portfolio[$index]['file'])?>" alt="http:/<?php echo $portfolio[$index]['url'] ?>" />
+                    <img src="<?php echo URL::asset('http://ass' . (fmod($index,4)+1) . '.axcoto.com/media/portfolio/thumbs/' . $portfolio[$index]['file'])?>" alt="http:/<?php echo $portfolio[$index]['url'] ?>" />
                 </a>
             </li>
         <?php endfor ?>

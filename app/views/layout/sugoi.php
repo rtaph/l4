@@ -3,19 +3,18 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="description" content="Axcoto offers top-notch web developement services" />
         <meta name="viewport" content="width=device-width">
-        <link rel="icon"  href="<?php echo asset('images/axcoto-fav.png') ?>" type="image/png"/> 
-        <link rel="shortcut icon" href="<?php echo asset('images/axcoto-fav.png') ?>" type="image/png" /> 
+        <link rel="icon"  href="<?php echo asset('http://ass1.axcoto.com/images/axcoto-fav.png') ?>" type="image/png"/> 
+        <link rel="shortcut icon" href="<?php echo asset('http://ass2.axcoto.com/images/axcoto-fav.png') ?>" type="image/png" /> 
 
         <title><?php echo $pageTitle ?></title>
 
-        <?php echo HTML::style('http://ass1.axcoto.com/css/reset.css'); ?>
-        <?php echo HTML::style('http://ass1.axcoto.com/css/style.css'); ?>
+        <?php echo HTML::style('http://ass3.axcoto.com/css/style.css'); ?>
         <?php //echo HTML::style('js/colorbox/colorbox.css'); ?>
 
         <meta property="og:title" content="Axcoto - We turn ideas into websites"/>
         <meta property="og:type" content="website"/>
         <meta property="og:url" content="http://axcoto.com/"/>
-        <meta property="og:image" content="http://axcoto.com/assets/ax.png"/>
+        <meta property="og:image" content="http://ass4.axcoto.com/assets/ax.png"/>
         <meta property="og:site_name" content="Axcoto"/>
         <meta property="fb:admins" content="624804112"/>
         <meta property="og:description" content="Axcoto is a small web development company& ready-to-use code item shop! At Axcoto, we make friendly, useful products! We build killing web sites which make our clients' business go smoothly! Also we made professional developer resources like scripts, code component, plugins (focus on WordPress, jQuery) for sale!"/>
@@ -140,7 +139,7 @@
         <div id="overlay"></div>        
         <?php echo HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');?>
         <?php //echo HTML::script('js/lib/paper.js');?>
-        <?php echo HTML::script('http://ass2.axcoto.com/js/transform/dist/jquery.transform-0.9.3.min.js');?>
-        <?php echo HTML::script('http://ass2.axcoto.com/js/axcoto.js');?>
+        <?php echo HTML::script('http://ass3.axcoto.com/js/transform/dist/jquery.transform-0.9.3.min.js');?>
+        <?php echo HTML::script('http://ass3.axcoto.com/js/axcoto.js');?>
         <?php //echo HTML::script('js/canvas.js');?>
     </body></html>
