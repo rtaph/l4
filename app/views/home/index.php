@@ -23,7 +23,9 @@
                     <figure>
                         <dl>
                             <dt>
-                            <a class="thumb" href="http://codecanyon.net/user/kureikain/portfolio?ref=kureikain" target="blank"><img src="<?php echo asset('media/product/small/' . $item['file']) ?>" /></a>
+                            <a class="thumb" href="http://codecanyon.net/user/kureikain/portfolio?ref=kureikain" target="blank">
+                                <img src="<?php echo asset('http://ass' . rand(1,5) . '.axcoto.com/media/product/small/' . $item['file']) ?>" />
+                            </a>
                             </dt>
                         </dl>
                         <figcaption>

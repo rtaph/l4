@@ -8,9 +8,9 @@
 
         <title><?php echo $pageTitle ?></title>
 
-        <?php echo HTML::style('css/reset.css'); ?>
-        <?php echo HTML::style('css/style.css'); ?>
-        <?php echo HTML::style('js/colorbox/colorbox.css'); ?>
+        <?php echo HTML::style('http://ass1.axcoto.com/css/reset.css'); ?>
+        <?php echo HTML::style('http://ass1.axcoto.com/css/style.css'); ?>
+        <?php //echo HTML::style('js/colorbox/colorbox.css'); ?>
 
         <meta property="og:title" content="Axcoto - We turn ideas into websites"/>
         <meta property="og:type" content="website"/>
@@ -140,7 +140,7 @@
         <div id="overlay"></div>        
         <?php echo HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');?>
         <?php //echo HTML::script('js/lib/paper.js');?>
-        <?php echo HTML::script('js/transform/dist/jquery.transform-0.9.3.min.js');?>
-        <?php echo HTML::script('js/axcoto.js');?>
+        <?php echo HTML::script('http://ass2.axcoto.com/js/transform/dist/jquery.transform-0.9.3.min.js');?>
+        <?php echo HTML::script('http://ass2.axcoto.com/js/axcoto.js');?>
         <?php //echo HTML::script('js/canvas.js');?>
     </body></html>
