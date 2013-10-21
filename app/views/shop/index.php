@@ -26,7 +26,7 @@
                     <dl>
                         <dt>                            
                         <a class="thumb" href="<?php echo $products[$index]['demo']?>" target="blank">
-                            <?php echo HTML::image('media/product/small/' . $products[$index]['file']);?>
+                            <?php echo HTML::image('http://ass' . (fmod($key, 4)+1) . '.axcoto.com/media/product/small/' . $products[$index]['file']);?>
                         </a>
                         </dt>
                         <dd>

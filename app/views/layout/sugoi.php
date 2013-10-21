@@ -137,9 +137,9 @@
             <canvas id="canvas" resize></canvas>            
         </div> <!-- End #wrapper -->
         <div id="overlay"></div>        
-        <?php echo HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');?>
+        <?php echo HTML::script('http://ass1.axcoto.com/js/jquery-1.7.2.min.js');?>
         <?php //echo HTML::script('js/lib/paper.js');?>
-        <?php echo HTML::script('http://ass3.axcoto.com/js/transform/dist/jquery.transform-0.9.3.min.js');?>
+        <?php echo HTML::script('http://ass2.axcoto.com/js/transform/dist/jquery.transform-0.9.3.min.js');?>
         <?php echo HTML::script('http://ass3.axcoto.com/js/axcoto.js');?>
         <?php //echo HTML::script('js/canvas.js');?>
     </body></html>
