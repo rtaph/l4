@@ -1,6 +1,6 @@
 @font-face {
     font-family: Museo300;  
-    src: local('Museo300-Regular'), 
+    src: local('Museo-300'), 
         url("../fonts/Museo300-Regular.ttf") format('truetype');  
     font-weight: normal;  
 }
