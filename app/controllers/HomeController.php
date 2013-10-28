@@ -1,5 +1,4 @@
 <?php
-
 class HomeController extends BaseController {
 
 	/*
@@ -17,7 +16,7 @@ class HomeController extends BaseController {
 
 	public function showWelcomeOld()
 	{
-		return View::make('hello');
+		return 'hello there,' . date('Y-m-d h:i:s') . "\n" . time();
 	}
 
 	public function showWelcome() {

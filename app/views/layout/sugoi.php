@@ -1,14 +1,17 @@
-<!doctype html><html><head>
-        <meta charset="utf-8">
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="description" content="Axcoto offers top-notch web developement services" />
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon"  href="<?php echo asset('http://ass1.axcoto.com/images/axcoto-fav.png') ?>" type="image/png"/> 
         <link rel="shortcut icon" href="<?php echo asset('http://ass2.axcoto.com/images/axcoto-fav.png') ?>" type="image/png" /> 
 
         <title><?php echo $pageTitle ?></title>
 
-        <?php echo HTML::style('http://ass3.axcoto.com/css/style.css'); ?>
+        <?php echo HTML::style('http://ass3.axcoto.com/css/purecss.css?'. time()); ?>
+        <?php echo HTML::style('/css/style.css?' . time()); ?>
         <?php //echo HTML::style('js/colorbox/colorbox.css'); ?>
 
         <meta property="og:title" content="Axcoto - We turn ideas into websites"/>
@@ -26,31 +29,31 @@
 
     <body id="home">
         <div id="wrapper">
-            <header>
-                <h2 id="logo"><a href="<?php echo url() ?>">Axcoto</a></h2>
-                <nav>
+            <header class="pure-g-r">
+                <h2 id="logo" class="pure-u-1-8" ><a href="<?php echo url() ?>">Axcoto</a></h2>
+                <nav class="pure-u-7-8">
                     <ul class="navigation" id="main-nav">
-                        <li <?php (Request::url() == '/' || Request::url() == 'frontpage') ? print('class="current"')  : print('')  ?>>
+                        <li <?php (Request::is('/') || Request::url() == '') ? print('class="current"')  : print('')  ?>>
                             <a href="<?php echo url() ?>"><span>Home</span></a>
                         </li>
 
-                        <li <?php Request::url() == 'shop' ? print('class="current"')  : print('')  ?>>
+                        <li <?php Request::is('shop*')? print('class="current"')  : print('')  ?>>
                             <a href="<?php echo url('shop') ?>"><span>Shop</span></a>
                         </li>
 
-                        <li <?php Request::url() == 'portfolio' ? print('class="current"')  : print('')  ?>>
+                        <li <?php Request::is('portfolio*') ? print('class="current"')  : print('')  ?>>
                             <a href="<?php echo url('portfolio') ?>"><span>Work</span></a>
                         </li>
 
-                        <li <?php Request::url() == 'lab' ? print('class="current"')  : print('')  ?>>
+                        <li <?php Request::is('lab*') ? print('class="current"')  : print('')  ?>>
                             <a href="<?php echo url('lab') ?>"><span>Lab</span></a>
                         </li>
 
-                        <li <?php Request::url() == 'product' ? print('class="current"')  : print('')  ?>>
+                        <li <?php Request::is('product*') ? print('class="current"')  : print('')  ?>>
                             <a href="<?php echo url('product') ?>"><span>Product</span></a>
                         </li>
 
-                        <li <?php Request::url() == 'contact' ? print('class="current"')  : print('')  ?>>
+                        <li <?php Request::is('contact*') ? print('class="current"')  : print('')  ?>>
                             <a href="<?php echo url('contact') ?>"><span>Contact</span></a>
                         </li>
                         <li>
@@ -59,27 +62,28 @@
                     </ul>
                 </nav>
             </header>			
-            <div class="clear"></div>
-
+            
             <?php echo $content ?>
 
-            <div class="clear line"></div>
             <footer>	
-                <div class="footer-extra">
-                    <section class="alpha">
+                <div class="footer-extra pure-g-r">
+                    <section class="pure-u-1-3">
                         <h4 class="header2">Who is <a href="/">Axcoto</a></h4>
                         <p>
                             Axcoto is a one-man endeavor code item shop! 
                             We do custom works&amp; build tailor code stuff for sale to make the world go easier!
                             <a href="<?php echo url('shop') ?>">These code</a> are made aim to ready, easy to use.
                         </p>
+                        <p id="copyright">
+                            Made by <a href="http://log.axcoto.com/">kureikain</a>                        
+                        </p>
 
                     </section>
 
-                    <section class="beta">
+                    <section class="pure-u-1-3">
                         <h4 class="header2">Our <a href="<?php echo url('contact') ?>">Apps&amp; tools</a></h4>
                         <p>
-                            <a href="http://willingapp.com/">WillingApp</a>: Support/Helpdesk platform,&nbsp;
+                            <a href="http://willingapp.com/">Noty.Im</a>: Status Page Made Easy,&nbsp;
                             <a href="http://mangaandme.com/">Mangeandme</a>: Social network for manga lover,&nbsp; 
                             <a href="http://mangaandme.com/">Font Converter</a>,&nbsp; 
                             <a href="http://mangaandme.com/">Short URL</a>,&nbsp;
@@ -92,8 +96,8 @@
                         </p>
                     </section>
 
-                    <section class="omega">
-                        <h4 class="header2">Connect With Us</h4>
+                    <section class="pure-u-1-3">
+                        <h4 class="header2">Axcoto</h4>
 
                         <p id="social-icons">
                             <a href="http://www.facebook.com/pages/Axcoto/276287961903"><img src="<?php echo asset('images/facebook.png') ?>" /></a>&nbsp;
@@ -104,19 +108,18 @@
                         </p>
                         <nav>
                             <ul class="navigation" id="links">
-                                <li <?php Request::url() == 'frontpage' ? print('class="current"')  : print('')  ?>>
+                                <li <?php Request::path() == '' ? print('class="current"')  : print('')  ?>>
                                     <a href="<?php echo url() ?>"><span>Home</span></a>
+                                </li>    
+                                <li class="<?php echo Request::path('shop')? 'current':''  ?>" title="sa" >
+                                    <a href="<?php echo url('shop') ?>"><span>Shop</span>sas s asa</a>
                                 </li>
 
-                                <li <?php Request::url() == 'shop' ? print('class="current"')  : print('')  ?>>
-                                    <a href="<?php echo url('shop') ?>"><span>Shop</span></a>
-                                </li>
-
-                                <li <?php Request::url() == 'portfolio' ? print('class="current"')  : print('')  ?>>
+                                <li <?php Request::is('portfolio/*')? print('class="current"')  : print('')  ?>>
                                     <a href="<?php echo url('portfolio') ?>"><span>Work</span></a>
                                 </li>
 
-                                <li <?php Request::url() == 'contact' ? print('class="current"')  : print('')  ?>>
+                                <li <?php Request::is('contact/*')? print('class="current"')  : print('')  ?>>
                                     <a href="<?php echo url('contact') ?>"><span>Contact</span></a>
                                 </li>
 
@@ -125,16 +128,8 @@
                         <div class="clear"></div>
 
                     </section>
-                    <div class="clear"></div>
-                    <p id="copyright">
-                        Made by <a href="http://axcoto.com/blog">kureikain</a>
-                        on Arch Linux, used <a href="http://www.vim.org/download.php">gVim</a>, run on an Arch VPS by <a href="http://www.vr.org/aff.php?aff=302">Host Virtual</a>.
-                    </p>
-
                 </div>
             </footer>
-
-            <canvas id="canvas" resize></canvas>            
         </div> <!-- End #wrapper -->
         <div id="overlay"></div>        
         <?php echo HTML::script('http://ass1.axcoto.com/js/jquery-1.7.2.min.js');?>
