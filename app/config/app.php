@@ -181,4 +181,10 @@ return array(
 
 	),
 
+	'cdn' => array(
+		'ass1.axcoto.com',
+		'ass2.axcoto.com',
+		'ass3.axcoto.com',
+	)
+
 );
