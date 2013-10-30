@@ -25,6 +25,24 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
+<style>
+
+  .node circle {
+    stroke: #fff;
+    stroke-width: 1.5px;
+  }
+
+  .center-node {
+    fill: #f00;
+  }
+
+  .link {
+    stroke: #333;
+    stroke-opacity: .6;
+  }
+
+  </style>
+
     </head>
 
     <body id="home">
@@ -57,7 +75,7 @@
                             <a href="<?php echo url('contact') ?>"><span>Contact</span></a>
                         </li>
                         <li>
-                            <a href="http://axcoto.com/blog"><span>Blog</span></a>
+                            <a href="http://log.axcoto.com"><span>Blog</span></a>
                         </li>
                     </ul>
                 </nav>
@@ -65,54 +83,26 @@
             
             <?php echo $content ?>
 
-            <footer>	
-                <div class="footer-extra pure-g-r">
-                    <section class="pure-u-1-3">
-                        <h4 class="header2">Who is <a href="/">Axcoto</a></h4>
+            <footer class="pure-g-r legal">	
+                <div class="pure-u-1-2">
+                    <section>
                         <p>
-                            Axcoto is a one-man endeavor code item shop! 
-                            We do custom works&amp; build tailor code stuff for sale to make the world go easier!
-                            <a href="<?php echo url('shop') ?>">These code</a> are made aim to ready, easy to use.
-                        </p>
-                        <p id="copyright">
-                            Made by <a href="http://log.axcoto.com/">kureikain</a>                        
-                        </p>
-
-                    </section>
-
-                    <section class="pure-u-1-3">
-                        <h4 class="header2">Our <a href="<?php echo url('contact') ?>">Apps&amp; tools</a></h4>
-                        <p>
-                            <a href="http://willingapp.com/">Noty.Im</a>: Status Page Made Easy,&nbsp;
-                            <a href="http://mangaandme.com/">Mangeandme</a>: Social network for manga lover,&nbsp; 
-                            <a href="http://mangaandme.com/">Font Converter</a>,&nbsp; 
-                            <a href="http://mangaandme.com/">Short URL</a>,&nbsp;
-                            <a href="http://mangaandme.com/">File Sharing</a>,&nbsp;
-                            <a href="http://mangaandme.com/">Facebook Emoticon</a>,&nbsp;
-                            <a href="http://mangaandme.com/">Facebook Special Chars</a>,&nbsp;
-                            <a href="http://mangaandme.com/">Code Obfucastor</a>,
-                            <a href="http://apps.facebook.com/axcotobuzz/?ref=ts">Axcoto Buzz</a>
-
+                            &copy; 2013 by Vinh. Just a humble guy. Trying to build a family. Help me by <a href="<?php echo url('contact')?>">hiring</a> me, or
+                            <a href="<?php echo url('shop') ?>">buy</a> my stuff or <a href="<?php echo url('shop')?>">donate</a> me.
                         </p>
                     </section>
+                </div>
+                <div class="pure-u-1-2">    
 
-                    <section class="pure-u-1-3">
-                        <h4 class="header2">Axcoto</h4>
-
-                        <p id="social-icons">
-                            <a href="http://www.facebook.com/pages/Axcoto/276287961903"><img src="<?php echo asset('images/facebook.png') ?>" /></a>&nbsp;
-                            <a href="http://twitter.com/kureikain"><img src="<?php echo asset('images/twitter.png') ?>" /></a>&nbsp;
-                            <a href="http://forr.st/-kureikain"><img src="<?php echo asset('images/forrst.png') ?>" /></a>&nbsp;
-                            <a href="http://wordpress.org/extend/plugins/profile/kureikain"><img src="<?php echo asset('images/wordpress.png') ?>" /></a>&nbsp;
-                            <a href="http://www.youtube.com/kureikain"><img src="<?php echo asset('images/youtube.png') ?>" /></a>&nbsp;
-                        </p>
+                    <section class="links">
+                        <!--
                         <nav>
                             <ul class="navigation" id="links">
                                 <li <?php Request::path() == '' ? print('class="current"')  : print('')  ?>>
                                     <a href="<?php echo url() ?>"><span>Home</span></a>
                                 </li>    
                                 <li class="<?php echo Request::path('shop')? 'current':''  ?>" title="sa" >
-                                    <a href="<?php echo url('shop') ?>"><span>Shop</span>sas s asa</a>
+                                    <a href="<?php echo url('shop') ?>"><span>Shop</span></a>
                                 </li>
 
                                 <li <?php Request::is('portfolio/*')? print('class="current"')  : print('')  ?>>
@@ -122,17 +112,30 @@
                                 <li <?php Request::is('contact/*')? print('class="current"')  : print('')  ?>>
                                     <a href="<?php echo url('contact') ?>"><span>Contact</span></a>
                                 </li>
-
                             </ul>
                         </nav>
-                        <div class="clear"></div>
-
+                        -->
+                        Related Projects:
+                        <ul>
+                            <li>
+                                <a title="Status Page Made Easy" href="http://noty.im">Noty.Im</a>
+                            </li>
+                            <li>    
+                                <a title="make up review search engine" href="http://xinh.so">Xinh.So</a>
+                            </li>
+                            <li>
+                                <a title="Meme Storm lets you read meme from multiple sites" href="https://itunes.apple.com/us/app/meme-storm/id601632226?mt=8">Meme Storm</a>
+                            </li>    
+                        </ul>
                     </section>
                 </div>
             </footer>
         </div> <!-- End #wrapper -->
         <div id="overlay"></div>        
-        <?php echo HTML::script('http://ass1.axcoto.com/js/jquery-1.7.2.min.js');?>
+        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <?php echo HTML::script('js/graph.js');?>
+        <?php //echo HTML::script('http://ass1.axcoto.com/js/jquery-1.7.2.min.js');?>
         <?php //echo HTML::script('js/lib/paper.js');?>
         <?php echo HTML::script('http://ass2.axcoto.com/js/transform/dist/jquery.transform-0.9.3.min.js');?>
         <?php echo HTML::script('http://ass3.axcoto.com/js/axcoto.js');?>

@@ -1,28 +1,33 @@
+@charset "UTF-8";
 @font-face {
-    font-family: 'Museo';  
-    src: local('Museo'), 
-        url("../fonts/Museo300-Regular.ttf") format('truetype');  
+    font-family: 'Museo300';  
+    src: local('Museo-300'), url("../fonts/Museo300-Regular.otf?");  
+    font-weight: bold;  
+}
+@font-face {
+    font-family: 'Museo300';  
+    src: local('Museo-300'), url("../fonts/Museo300-Regular.otf?");  
     font-weight: normal;  
 }
 
-body {line-height: 1; color: black;background: white; }
+body {line-height: 1; color: black;background: white;}
 
 ol, ul {list-style: none;}
 
 table {border-collapse: separate; border-spacing: 0;}
 
-caption, th, td { text-align: left; font-weight: normal; }
-blockquote:before, blockquote:after, q:before, q:after { content: ""; }
-blockquote, q { quotes: "" "";}
+body {
+  background: url(../images/layout/ttt.gif) top center repeat; 
+  border-bottom: 10px solid #74604C;  
+  border-top: 10px solid #74604C; 
+  font-size: 16px; 
+  font-family: Arial,Helvetica,Helvetica Neue,Verdana,sans-serif; 
+  line-height: 1.5em; text-shadow: 0 -1px 0 rgba(85, 117, 12, 0.01);
+}
 
-body {background: url(../images/layout/ttt.gif) top center repeat; border-bottom: 10px solid #74604C;  border-top: 10px solid #74604C; font-size: 16px; font-family: Arial,Helvetica,Helvetica Neue,Verdana,sans-serif; height: 100%; width: 100%; line-height: 1.5em; text-shadow: 0 -1px 0 rgba(85, 117, 12, 0.01); min-height: 700px}
-
-/*body {background: #EFE4D4 url(../images/layout/background.png) top center repeat-x; border-bottom: 10px solid #74604C;  border-top: 10px solid #74604C; font-size: 16px; font-family: Arial,Helvetica,Helvetica Neue,Verdana,sans-serif; height: 100%; width: 100%; line-height: 1.5em; text-shadow: 0 -1px 0 rgba(85, 117, 12, 0.01)}
-*/
-
-.clear {clear: both; display: block;  font-size: 0; height: 0; width: 1000px; }
+/*.clear {clear: both; display: block;  font-size: 0; height: 0; width: 1000px; }
 .clear.line {background: #dcd1c1; border-bottom: 1px solid #fff;  height: 1px; overflow: hidden;}
-
+*/
 h1, h2, h3, h4 {font-family: Museo300; color: #74604C;}
 h1 { color: #74604C; display: block; font-size: 4em; font-weight: 900;}
 h2,h3 { color: #74604C; display: block; font-size: 2em; font-weight: 100; line-height: 28px; text-align: left; }
@@ -44,30 +49,49 @@ li,a,img { cursor: pointer;}
 button {background:  #74604C;  color: #fff; cursor: pointer; height: 34px; font-size: 1.1em;  margin: 0; padding: 0 4px; -moz-border-radius: 5px; -webkit-border-radius: 5px;  }
 button:hover { background: #e36f42; }
 
-.alpha {float: left; width: 300px; margin-right: 25px;}
-.beta {float: left; width: 300px; margin-left: 25px; margin-right: 25px;}
-.omega {float: left; width: 300px; margin-left: 25px;}
-.alpha, .beta, .omega {margin-bottom: 10px;}
-
 /*Layout structure*/
-#wrapper {background: url("") no-repeat 40px 20px; display: block; margin: 0 auto; width: 1000px;}
-header {display: block; clear: both; margin: 0 0 0px 0}
-#logo {
-    float: left; width: 200px; font-size: 3.5em; font-family: Museo300; font-weight: bold; margin: 20px 0; 
-    -moz-transition: all 0.2s ease-out 0s;
-}
-nav {display: block; }
+#wrapper {margin: 0 auto; width: 1000px;}
 
-.intro {color: #74604C; clear: both; display: block; float: right; font-family: Museo300; font-size: 1em; height: 150px; line-height: 30px; margin: 20px 0 10px 0; width: 1000px;}
-.intro h3 {color: #D35A2B; font-weight: 1.8em; margin-bottom: 10px; text-align: right;}
-.intro h4 {font-size: 1.2em; text-align: left;}
+#logo {
+    font-size: 3.5em; 
+    font-family: Museo300; 
+    font-weight: bold; 
+  margin: 20px 0; 
+  -moz-transition: all 0.2s ease-out 0s;
+}
+
+#logo a {
+    text-decoration: none;  
+  }
+
+
+.intro {
+    color: #74604C; 
+    font-family: Museo300; font-size: 1em; 
+}
+.intro, .intro p, .intro h3, .intro h4 {
+    font-family: Museo300; 
+}
+.intro h3 {color: #D35A2B; font-weight: 1.8em; text-align: center;}
+.intro h4, .intro p {font-size: 1.2em; text-align: justify; line-height: 1.2em; color: #74604C;}
 
 .content {margin: 10px 0 10px 0; clear: both}
-footer {color: #74604C; display: block; font-size: 0.8em; line-height: 1.4em; margin: 5px 0 10px 0; text-align: left; width: 1000px; }
-footer section {display: block; float: left; margin-bottom: 10px;}
+.legal {
+    margin-top: 50px;
+    color: #74604C; 
+    text-align: left; 
+    border-top: 1px solid #DCD1C1
+}
+.legal section{
+    margin: 5px 10px;
+}
+.legal .links {
+    text-align: right;
+    font-size: 0.9em
+}
 
-/*General style*/	
-#main-nav {float: right;}
+/*General style*/ 
+#main-nav {float: right; margin: 0;}
 #main-nav li {float: left; margin: 0; position: relative;}
 #main-nav li a {
     background: transparent; 
@@ -76,7 +100,7 @@ footer section {display: block; float: left; margin-bottom: 10px;}
     display: block; 
     font-weight:normal; 
     margin: 0; 
-    padding:20px 12px 5px 12px; 
+    padding: 30px 10px 15px;
     text-decoration:none; 
     text-transform: uppercase;
     -moz-transition: all 0.2s ease-out 0s;
@@ -85,38 +109,6 @@ footer section {display: block; float: left; margin-bottom: 10px;}
     color: #fff; background: #74604C; margin: 0; padding-top: 22px; padding-bottom: 15px;  -moz-border-radius: 0 0 3px 3px; -webkit-border-radius: 0 0 3px 3px; border-radius: 0 0 3px 3px; text-shadow:0 -1px 1px rgba(0, 0, 0, 0.25);
     padding-top: 30px;
 }
-/*
-#main-nav li a:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-position:-250px -250px;
-    background-repeat:no-repeat;
-    background-image: -moz-radial-gradient(circle closest-side, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 37%, rgba(255, 255, 255, 0.8) 45%, rgba(255, 255, 255, 0.0) 50%);
-    -moz-background-size:250% 250%, 100% 100%;
-      -o-background-size:250% 250%;
-         background-size:250% 250%;
-    
-    -webkit-transition: background-position 0.5s ease;
-       -moz-transition: background-position 0.5s ease;
-            transition: background-position 0.5s ease;
-}
-
-#main-nav li a:hover:before,
-#main-nav li a:focus:before {
-    background-position:0 0;
-    -webkit-transition-duration: 0.5s;
-       -moz-transition-duration: 0.5s;
-            transition-duration: 0.5s;
-}
-
-#main-nav li a:active:before {
-    opacity: 0;
-}
-*/
 
 .toolbar {background:  #74604C;  height: 58px; margin: 40px 0 20px 0; -moz-box-shadow: 0 0 1px #000; -webkit-box-shadow: 0 0 1px #000; -moz-border-radius: 7px; -webkit-border-radius: 7px; }
 .toolbar h2 {color: #fff; float: left; margin-left: 10px; margin-top: 14px; }
@@ -195,10 +187,6 @@ footer section {display: block; float: left; margin-bottom: 10px;}
 .project dl {display: block; font-family: Museo300; margin: 0; padding: 0;}
 .project p {font-style: italic; padding: 0; margin: 0; text-align: center}
 
-.footer-extra {margin-top: 7px;}
-.footer-extra p{padding-bottom: 0px;}
-footer h4, footer h3  {margin-bottom: 7px}
-
 #quick-contact {}
 #quick-contact form {background: #74604C; padding: 10px; -moz-border-radius:5px 5px 5px 5px; -moz-box-shadow:0 0 5px #DCD1C1;}
 #quick-contact input {background: #fcf8f1; color: #8d755d; cursor: text; display: block; font-size: 0.9em; margin-bottom: 5px; padding: 5px; width: 97%; /*-moz-box-shadow: 0 0 5px #dcd1c1; -webkit-box-shadow: 0 0 5px #dcd1c1; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;*/}
@@ -215,11 +203,9 @@ footer h4, footer h3  {margin-bottom: 7px}
            margin: 0 10px 0 0;}
 #links li.current a, #links a:hover {color: #8D755D;}
 
-.sidebar dt {color: #D35A2B; font-family: Museo300; font-size: 1.4em; margin: 0; text-align: right; }
-.sidebar dd {color: #8D755D; text-align: right; font-size: 0.85em; margin-bottom: 30px;  padding-bottom: 10px; border-bottom: 1px solid #DCD1C1}
+.sidebar dt {color: #D35A2B; font-family: Museo300; font-size: 1.4em; margin: 0; }
+.sidebar dd {color: #8D755D;  font-size: 0.85em; margin: 0 10px 30px 0;  padding-bottom: 10px; border-bottom: 1px solid #DCD1C1}
 
-#copyright {color: #ddd; text-align: right; padding: 0; font-size: 1em; display: block; position: fixed; bottom: 0px; z-index: 2}
-#copyright a{color: #ddd; text-decoration: underline}
 #social-icons {text-align: left; padding-bottom: 2px;}
 #social-icons a:hover { opacity: 0.8; display: inline-block}
 
@@ -250,8 +236,6 @@ footer h4, footer h3  {margin-bottom: 7px}
 #product > .alpha {float: right;  width: 650px; margin: 0 0 25px 25px;}
 #product > .beta {float: left; margin: 25px 25px 25px 0; text-align: right; width: 300px; }
 
-.products figure {display: block; clear: both; height: 90px;}
-.products figure > dl{display: block; float: left; width: 90px; margin-right: 10px;}
 .products a.thumb{display: block; height: 90px; margin-top: 5px}
 .products figure dd {
     -moz-transition: -moz-transform 0.2s ease-out 0s;
@@ -259,33 +243,23 @@ footer h4, footer h3  {margin-bottom: 7px}
     background: #D35A2B;
     box-shadow: 0 0 25px rgba(255, 255, 255, 0.3) inset;
     color: #E3D7BF;
-    direction: ltr;
-    display: inline-block;
     font-family: Verdana;
-    margin: 5px 0 0 0;
+    margin: 5px 10px;
     padding: 0;
     position: relative;
     text-shadow: 0 1px 0 black;
     text-align: center; 
     color: #fff; 
-    display: block;
     line-height: 2em;
     height: 2em;
-
-}
-.products figure dd:hover {
-    -moz-transform: scale(1.1);
-    box-shadow: 0 0 30px #8B4020 inset;
 }
 .products figure dd a { 
     color: #E3D7BF;
 }
 
-
-.products figcaption {display: block; float: left; width: 200px}
 .products figcaption p{padding: 0; line-height: 16px;}
 
-#latest-products {margin-top: 15px;}
+#latest-products {margin-top: 15px; padding: 0;}
 #latest-products li{margin: 0 0 15px 0; padding: 0; clear: both}
 
 #shop-products li {margin: 0 15px 20px 15px; padding: 0; float: left; width: 300px; height: 125px}
@@ -308,6 +282,15 @@ footer h4, footer h3  {margin-bottom: 7px}
 #lab .header1 a{}
 #lab .header1 a:hover{ padding-right: 32px; }
 #lab p {padding-left: 20px;}
+
+/* Index */
+.d3me {
+    position: relative;        
+    height: 700px;
+}
+.d3me__body {
+    height: 700px;   
+}
 
 #canvas {width: 100%; position: fixed; bottom: 0px; height: 50px; left: 0; z-index: 1}
 #overlay {width: 100%; position: fixed; height: 100%; z-index: 1; display: none;}
