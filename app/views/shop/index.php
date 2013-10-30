@@ -21,25 +21,22 @@
         <?php
         for ($index = 0; $index < $last; $index++) :
             ?>
-        <figure  class="pure-u-1-3">
-            <dl>
-                <dt>                            
-                    <a class="thumb" href="<?php echo $products[$index]['demo']?>" target="blank">
-                        <?php echo HTML::image('/images/ajax-loader.gif', '', array('class' => 'lazy', 'data-src' => 'http://ass' . (fmod($index, 4)+1) . '.axcoto.com/media/product/small/' . $products[$index]['file']));?>
-                    </a>
-                </dt>
-                <dd>
-                    <a class="pure-button-warning" href="<?php echo $products[$index]['demo']?>">Buy - $<?php echo $products[$index]['price'] ?></a>
-                </dd>
-            </dl>
-
-            <figcaption>
-                <a target="blank"  href="http://codecanyon.net/user/kureikain/portfolio?ref=kureikain">
-                    <?php echo $products[$index]['title'] ?>
-                </a>
-                <p><?php echo $products[$index]['info'] ?></p>
-                <a target="blank"  href="http://codecanyon.net/user/kureikain/portfolio?ref=kureikain">Detail&amp; live demo</a>
-            </figcaption>
+        <figure class="pure-u-1-3">
+            <div class="product__wrap">
+                <a target="blank"  href="http://codecanyon.net/user/kureikain/portfolio?ref=kureikain"><?php echo $products[$index]['title'] ?></a>
+                <div class="product__meta pure-g-r">
+                    <div class="pure-u-1-2">                            
+                        <a class="thumb" href="<?php echo $products[$index]['demo']?>" target="blank">
+                            <?php echo HTML::image('/images/ajax-loader.gif', '', array('class' => 'lazy', 'data-src' => 'http://ass' . (fmod($index, 4)+1) . '.axcoto.com/media/product/small/' . $products[$index]['file']));?>
+                        </a>
+                    </div>
+                    <div class="pure-u-1-2">    
+                        <a class="pure-button pure-button-warning pure-button-large" href="<?php echo $products[$index]['demo']?>" target="blank">Buy - $<?php echo $products[$index]['price'] ?></a>
+                        <a class="pure-button pure-button-warning pure-button-large" target="blank"  href="http://codecanyon.net/user/kureikain/portfolio?ref=kureikain">Demo</a>
+                    </div>  
+                </div>
+                <p><?php echo $products[$index]['info'] ?></p>          
+            </div>
         </figure>            
         <?php
         endfor;

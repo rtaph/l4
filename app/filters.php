@@ -10,16 +10,31 @@
 | application. Here you may also register your custom route filters.
 |
 */
-
+define('APP_ETAG', md5("20131021-1020-1")); //date-time-rev
+  
 App::before(function($request)
 {
-	//
+  // echo $request->url();
+  // var_dump($request->headers);
+  // $etag = $request->headers->get('Etagsasa');
+  // //var_dump($etag);
+  // var_dump($_SERVER);
+  // phpinfo();
+	// if ($etag === APP_ETAG) {
+ //    App::abort(304);  
+ //  }
+  
 });
 
 
 App::after(function($request, $response)
 {
-	//
+  // $response->headers->set('Etag', time());
+  // $response->headers->set('HTTP-ETAG', time());
+  // $response->headers->set('Etagsasa', time());
+  // $response->headers->set('Last-Modified', 'Sun, 20 Oct 2013 20:48:35 GMT');
+  
+  // $response->headers->set('Etag', md5($etag));
 });
 
 /*

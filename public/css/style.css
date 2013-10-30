@@ -212,15 +212,12 @@ button:hover { background: #e36f42; }
 /*Page specific style*/
 
 /*Contact page*/
-#contact-form {float: right;  width: 650px; margin-left: 25px;}
+#contact-form {}
 #contact-form p {padding-top: 0}
-#contact-form label, #contact-form input, #contact-form textarea {display: block; width: 600px; height: 25px; font-size: 1em;}
-#contact-form label {font-size: 1.1em;}
-#contact-form textarea {height: 100px;}
 #contact-form label.error {border: 1px dotted red; display: block; font-size: 0.8em; padding: 0 5px; margin-top: 3px;}
 
 #email-contact-form {margin-top: 10px;}
-#contact-information {float: left; margin-right: 25px; text-align: right; width: 300px; }
+#contact-information {text-align: right; }
 
 /*About page*/
 #about {margin-top: 5px;}
@@ -236,28 +233,21 @@ button:hover { background: #e36f42; }
 #product > .alpha {float: right;  width: 650px; margin: 0 0 25px 25px;}
 #product > .beta {float: left; margin: 25px 25px 25px 0; text-align: right; width: 300px; }
 
-.products a.thumb{display: block; height: 90px; margin-top: 5px}
-.products figure dd {
-    -moz-transition: -moz-transform 0.2s ease-out 0s;
-    -moz-transition: all 0.2s ease-out 0s;
-    background: #D35A2B;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.3) inset;
-    color: #E3D7BF;
-    font-family: Verdana;
-    margin: 5px 10px;
-    padding: 0;
-    position: relative;
-    text-shadow: 0 1px 0 black;
-    text-align: center; 
-    color: #fff; 
-    line-height: 2em;
-    height: 2em;
+.products a.thumb{display: inline-block; text-align: center;}
+.products .product__wrap {
+    margin: 0 10px;
+    background: none repeat scroll 0 0 #F5F5F5;
+    border: 5px solid #DDDDDD;
+    display: inline-block;
+    line-height: 0;
+    margin: 5px 0;
+    transition: border-color 0.2s ease-out 0s;    
 }
-.products figure dd a { 
-    color: #E3D7BF;
-}
-
-.products figcaption p{padding: 0; line-height: 16px;}
+.products .product__wrap:hover {
+    border-color: #D86654;
+}    
+.products p{padding: 0; line-height: 16px; text-transform: capitalize;}
+.products a.pure-button { margin: 5px 0; width: 50%; }
 
 #latest-products {margin-top: 15px; padding: 0;}
 #latest-products li{margin: 0 0 15px 0; padding: 0; clear: both}
@@ -284,6 +274,24 @@ button:hover { background: #e36f42; }
 #lab p {padding-left: 20px;}
 
 /* Index */
+.myproduct {
+
+}
+.myproduct__logo {
+    width: 256px;
+    height: 256px;
+    background: url("/images/product-spr.png") no-repeat;
+}
+.myproduct__logo.notyim {
+    background-position: 0 0;
+}
+.myproduct__logo.memestorm {
+    background-position: 0 -256px;
+}
+.myproduct__logo.xinhso {
+    background-position: 0 -513px;
+}
+
 .d3me {
     position: relative;        
     height: 700px;
@@ -294,3 +302,60 @@ button:hover { background: #e36f42; }
 
 #canvas {width: 100%; position: fixed; bottom: 0px; height: 50px; left: 0; z-index: 1}
 #overlay {width: 100%; position: fixed; height: 100%; z-index: 1; display: none;}
+
+
+
+.pure-button-success,
+        .pure-button-error,
+        .pure-button-warning,
+        .pure-button-secondary {
+            color: white;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .pure-button-success {
+            background: rgb(28, 184, 65); /* this is a green */
+        }
+
+        .pure-button-error {
+            background: rgb(202, 60, 60); /* this is a maroon */
+        }
+
+        .pure-button-warning {
+            background: rgb(223, 117, 20); /* this is an orange */
+        }
+
+        .pure-button-secondary {
+            background: rgb(66, 184, 221); /* this is a light blue */
+        }
+.pure-button-xsmall {
+            font-size: 70%;
+        }
+
+        .pure-button-small {
+            font-size: 85%;
+        }
+
+        .pure-button-large {
+            font-size: 110%;
+        }
+
+        .pure-button-xlarge {
+            font-size: 125%;
+        }        
+
+/* Node module for graph */
+.node circle {
+    stroke: #fff;
+    stroke-width: 1.5px;
+}
+
+.center-node {
+    fill: #f00;
+}
+
+.link {
+    stroke: #333;
+    stroke-opacity: .6;
+}        

@@ -23,3 +23,4 @@ Route::get('/shop', 'ShopController@showWelcome');
 Route::get('/portfolio', 'PortfolioController@showWelcome');
 Route::get('/lab', 'LabController@showWelcome');
 Route::get('/product', 'ProductController@showWelcome');
+Route::get('/me', 'HomeController@mine');

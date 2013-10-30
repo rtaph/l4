@@ -20,29 +20,10 @@
         <meta property="og:image" content="http://ass4.axcoto.com/assets/ax.png"/>
         <meta property="og:site_name" content="Axcoto"/>
         <meta property="fb:admins" content="624804112"/>
-        <meta property="og:description" content="Axcoto is a small web development company& ready-to-use code item shop! At Axcoto, we make friendly, useful products! We build killing web sites which make our clients' business go smoothly! Also we made professional developer resources like scripts, code component, plugins (focus on WordPress, jQuery) for sale!"/>
+        <meta property="og:description" content="Axcoto is a free lancer service focus in web development. I also sell ready-to-use code library such as WordPress plugin, jQuery plugin, custom Rails/PHP apps."/>
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
-<style>
-
-  .node circle {
-    stroke: #fff;
-    stroke-width: 1.5px;
-  }
-
-  .center-node {
-    fill: #f00;
-  }
-
-  .link {
-    stroke: #333;
-    stroke-opacity: .6;
-  }
-
-  </style>
-
     </head>
 
     <body id="home">
@@ -134,10 +115,75 @@
         <div id="overlay"></div>        
         <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
         <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-        <?php echo HTML::script('js/graph.js');?>
-        <?php //echo HTML::script('http://ass1.axcoto.com/js/jquery-1.7.2.min.js');?>
-        <?php //echo HTML::script('js/lib/paper.js');?>
+        <?php echo HTML::script('/js/graph.js');?>
         <?php echo HTML::script('http://ass2.axcoto.com/js/transform/dist/jquery.transform-0.9.3.min.js');?>
-        <?php echo HTML::script('http://ass3.axcoto.com/js/axcoto.js');?>
-        <?php //echo HTML::script('js/canvas.js');?>
+        <?php echo HTML::script('http://ass3.axcoto.com/js/axcoto.js');?>        
+        <script>
+ var width = 960,
+        height = 600;
+
+    var color = d3.scale.category10();
+
+    var zoom = 2;
+    var force = d3.layout.force()
+        .charge(-150 * zoom)
+        .linkDistance(50 * zoom)
+        // .linkStrength(function(l) {return l.value * 5})
+        .linkStrength(0.3)
+        .gravity(0.1)
+        .size([width, height]);
+
+    var outer_svg = d3.select("div#d3me").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .attr("viewBox", "0 0 " + width + " " + height )
+        .attr("preserveAspectRatio", "xMidYMid meet")
+        .attr("pointer-events", "all")
+        .append('svg:g')
+        //.call(d3.behavior.zoom().on("zoom", redraw)) no more zoom
+    rect = outer_svg.append('svg:rect')
+      .attr('width', width)
+      .attr('height', height)
+      .attr('fill', 'rgba(255, 255, 255, 0)');
+    svg = outer_svg.append('svg:g');
+        // .call(d3.behavior.zoom().on("zoom", redraw))
+
+
+    function redraw() {
+      svg.attr("transform", "translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")");
+    }
+
+    var complete_graph;
+
+    function reload(params) {
+      d3.selectAll('.node').remove();
+      d3.selectAll('.link').remove();
+      var graph = complete_graph;
+      if (params['min_correlation']) {
+        $('#min-correlation').val(params['min_correlation']);
+        graph = subgraph(graph, +params['min_correlation']);
+      }
+      if (params['center'] && params['degree']) {
+        force.gravity(0.03);
+        $('#degree').val(params['degree']);
+        $('#cmd').val(params['center']);
+        graph = subgraph_neighborhood(graph, params['center'], +params['degree']);
+      }
+      display_graph(graph, zoom, params['center']);
+    }
+
+    d3.json("/me", function(error, graph) {
+      set_links(graph);
+      complete_graph = graph;
+      var params = parse_get_params();
+      if (!params['center']) {
+        params['center'] = 'Vinh';
+      }
+      if (!params['degree']) {
+        params['degree'] = 2;
+      }
+      params['degree'] = 5
+      reload(params);
+    })        
+        </script>
     </body></html>

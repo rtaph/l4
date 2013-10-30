@@ -78,7 +78,7 @@
             var s = axcoto
             s.filterPortfolio()
             s.validateForm()
-            $("img.lazy").unveil()
+            $('img.lazy').unveil()
         },
 
         validateForm: function () {
@@ -124,3 +124,8 @@ _gaq.push(['_trackPageview']);
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(ga, s);
 })();
+
+
+(function () {
+    
+})()
