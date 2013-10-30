@@ -16,6 +16,9 @@ class BaseController extends Controller {
 		),
 	);
 
+	//@TODO PUT this in config file or sw
+	const URL_DEV = 'axcoto.dev';
+
 	protected function setupLayout()
 	{
 		if ( ! is_null($this->layout))
@@ -23,6 +26,9 @@ class BaseController extends Controller {
 			$this->layout = View::make($this->layout, array(
 				'pageTitle' => 'Axcoto - We turn ideas into website'
 			));
+			View::composer('layout.sugoi', function ($view) {
+				$view->with('environment', $_SERVER['SERVER_NAME'] === self::URL_DEV? 'dev':'prod' );
+			});
 			
 		}
 	}

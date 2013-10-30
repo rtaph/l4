@@ -117,10 +117,15 @@
     </div>
     <!-- End #wrapper -->
     <div id="overlay"></div>
+
+    <?php if ($environment == 'dev') : ?>
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <?php echo HTML::script( '/js/graph.js');?>
-    <?php echo HTML::script( 'http://ass2.axcoto.com/js/transform/dist/jquery.transform-0.9.3.min.js');?>
+    <?php //echo HTML::script( 'http://ass2.axcoto.com/js/transform/dist/jquery.transform-0.9.3.min.js');?>
     <?php echo HTML::script( 'http://ass3.axcoto.com/js/axcoto.js');?>    
+    <?php else : ?>
+    <?php echo HTML::script( '/js/asset502f539d14cbb4ce3deeffed6aace29.js' );?>    
+    <?php endif; ?>
 </body>
 </html>
