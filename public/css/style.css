@@ -167,6 +167,13 @@ button:hover
   margin:0 auto;
   width:1000px;
 }
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (max-width : 1024px) {
+  #wrapper
+  {
+    width:100%;
+  }
+}
 
 #logo
 {
@@ -279,20 +286,13 @@ button:hover
 .toolbar
 {
   background:#74604C;
-  height:58px;
-  margin:40px 0 20px;
-  -moz-box-shadow:0 0 1px #000;
-  -webkit-box-shadow:0 0 1px #000;
-  -moz-border-radius:7px;
-  -webkit-border-radius:7px;
+  
 }
 
 .toolbar h2
 {
   color:#fff;
-  float:left;
-  margin-left:10px;
-  margin-top:14px;
+  padding: 0.5em 5px ;
 }
 
 .toolbar h2 a
@@ -680,18 +680,26 @@ button:hover
 
 .products .product__wrap
 {
-  margin:0 10px;
   background:none repeat scroll 0 0 #F5F5F5;
-  border:5px solid #DDD;
-  display:inline-block;
+  border:2px solid #DDD;
   line-height:0;
-  margin:5px 0;
+  margin: 0px 5px 10px 5px;
+  padding: 0 5px;
   transition:border-color .2s ease-out 0;
+
 }
 
 .products .product__wrap:hover
 {
   border-color:#D86654;
+}
+
+.product__wrap h4 {
+  font-family: Museo300;  
+  font-size: 1em;
+}
+.product__wrap a {
+  text-decoration: none
 }
 
 .products p

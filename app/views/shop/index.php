@@ -23,7 +23,9 @@
             ?>
         <figure class="pure-u-1-3">
             <div class="product__wrap">
-                <a target="blank"  href="http://codecanyon.net/user/kureikain/portfolio?ref=kureikain"><?php echo $products[$index]['title'] ?></a>
+                <h4>                
+                    <a target="blank"  href="http://codecanyon.net/user/kureikain/portfolio?ref=kureikain"><?php echo $products[$index]['title'] ?></a>
+                </h4>
                 <div class="product__meta pure-g-r">
                     <div class="pure-u-1-2">                            
                         <a class="thumb" href="<?php echo $products[$index]['demo']?>" target="blank">

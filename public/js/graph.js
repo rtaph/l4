@@ -2,7 +2,9 @@
 
     var width = 960,
         height = 600;
-
+        if ($('#d3me').width() < 960) {
+            width = $('#d3me').width()     
+        }
         var color = d3.scale.category10();
 
         var zoom = 2;
