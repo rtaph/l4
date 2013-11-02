@@ -256,7 +256,14 @@
             .style("text-anchor", "middle")
             .style("font-size", node_text_size)
             .style("font-family", "monospace");
-
+        
+        node.append("image")
+            .attr('xlink:href', '/images/axcoto-fav.png')
+            .attr('width', 90)
+            .attr('heigh', 90)
+            .style('width', 90)
+            .style('heigh', 90)
+            
         node.on('click', function (d, i, event) {
             reload({
                 center: d.name,
