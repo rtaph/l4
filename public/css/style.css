@@ -292,7 +292,7 @@ button:hover
 .toolbar h2
 {
   color:#fff;
-  padding: 0.5em 5px ;
+  padding: 0.5em ;
 }
 
 .toolbar h2 a
@@ -815,14 +815,8 @@ button:hover
   height:700px;
 }
 
-#canvas
-{
-  width:100%;
-  position:fixed;
-  bottom:0;
-  height:50px;
-  left:0;
-  z-index:1;
+.terminalme {
+
 }
 
 #overlay

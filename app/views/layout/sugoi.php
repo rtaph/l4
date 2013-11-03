@@ -32,8 +32,8 @@
 <body id="home">
     <div id="wrapper">
         <header class="pure-g-r">
-            <h2 id="logo" class="pure-u-1-8"><a href="<?php echo url() ?>">Axcoto</a></h2>
-            <nav class="pure-u-7-8">
+            <h2 id="logo" class="pure-u-1-4"><a href="<?php echo url() ?>">Axcoto</a></h2>
+            <nav class="pure-u-3-4">
                 <ul class="navigation" id="main-nav">
                     <li <?php (Request::is( '/') || Request::url()=='' ) ? print( 'class="current"') : print( '') ?>>
                         <a href="<?php echo url() ?>"><span>Home</span></a>
@@ -71,8 +71,8 @@
             <div class="pure-u-1-2">
                 <section>
                     <p>
-                        &copy; 2013 by Vinh. Just a humble guy. Trying to build a family. Help me by <a href="<?php echo url('contact')?>">hiring</a> me, or
-                        <a href="<?php echo url('shop') ?>">buy</a> my stuff or <a href="<?php echo url('shop')?>">donate</a> me.
+                        &copy; 2013 by Vinh. Just a humble guy. Trying to build a family. Help me paying my wedding by <a href="<?php echo url('contact')?>">hiring</a> me, or
+                        <a href="<?php echo url('shop') ?>">buy</a> my stuff, <a href="https://www.gittip.com/kureikain/">tip</a> me or <a href="<?php echo url('shop')?>">donate</a> to me.
                     </p>
                 </section>
             </div>
@@ -121,6 +121,9 @@
     <?php if ($environment == 'dev') : ?>
     <script src="/js/d3.v2.min.js" charset="utf-8"></script>
     <script src="/js/jquery-1.10.1.min.js"></script>
+    <?php echo HTML::script( '/js/jquery.mousewheel.js');?>
+    <?php echo HTML::script( '/js/jquery.terminal-0.7.7.min.js');?>
+
     <?php echo HTML::script( '/js/graph.js');?>
     <?php //echo HTML::script( 'http://ass2.axcoto.com/js/transform/dist/jquery.transform-0.9.3.min.js');?>
     <?php echo HTML::script( 'http://ass3.axcoto.com/js/axcoto.js');?>    

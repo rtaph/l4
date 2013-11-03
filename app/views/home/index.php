@@ -39,7 +39,7 @@
               <h3><a href="http://Xinh.So">Xinh.So</a></h3>
               <div class="myproduct__logo xinhso"></div>
               <p>
-                A make up review search engine.
+                A mobile app alows you to search review for make up product. Coming soon spring 2014.
               </p>
             </div> 
           
@@ -47,13 +47,18 @@
     </div>    
 
     <div class="toolbar">
-        <h2 id="portfolio-link">I try to turn me into a graph</h2>
+        <h2 id="portfolio-link"><a href="#graph">Graph</a> myself. Or try <a href="#terminal">my terminal</a></h2>
     </div>
 
     <div class='pure-g-r'>
         <div class="pure-u-1 d3me">
 
             <div class="main d3me__body" id="d3me">
+
+            </div>
+        </div>
+        <div class="pure-u-1 terminalme">
+            <div class="main" id="terminalme">
 
             </div>
         </div>
