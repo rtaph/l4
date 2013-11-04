@@ -107,7 +107,7 @@
     $(document).ready(function () {
         axcoto.init();
         axcoto.animateFolio();
-        $('#canvas').css({height: '50px'});
+        // $('#terminalme').
     });  
 
 })(jQuery);

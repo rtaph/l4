@@ -60,7 +60,7 @@ class HomeController extends BaseController {
                         'group' => 2, 'name' => 'Language', 'size' => 20,
                         'nodes' => array(
                             [
-                                'group' => 3, 'name' => 'PHP', 'size' => 14, 'icon' => 'php.gif',
+                                'group' => 3, 'name' => 'PHP', 'size' => 14, 'icon' => 'php.png',
                                 'nodes' => array(
                                     ['group' => 5, 'name' => 'Laravel', 'size' => 14],
                                     ['group' => 5, 'name' => 'WordPress', 'size' => 14],
