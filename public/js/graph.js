@@ -94,7 +94,7 @@
         node.append("image")
           .attr("xlink:href", function (d) {
             if (typeof d.icon === 'undefined' || d.icon == '') {
-                return "http://axcoto.dev/images/axcoto-fav.png"
+                return "http://axcoto.com/images/axcoto-fav.png"
             }
             return '/images/graph/' + d.icon
           })
