@@ -76,7 +76,7 @@ class AssetCommand extends Command {
 			$css = implode("\n", $css);
 			$css_hash = md5($css);
 			file_put_contents(app_path('config/asset.php'), "<?php return ['hash' => '$hash'];");
-			file_put_contents(public_path("css/stylesheet-{$hash}.css"), $css);
+			file_put_contents(public_path("css/stylesheet-{$css_hash}.css"), $css);
 			file_put_contents(public_path("css/stylesheet.css"), $css);
 			$this->info("Generate {public_path('css/stylesheet.css')}");
 			$this->info("Generate {public_path('css/stylesheet-{$css_hash}.css')}");
