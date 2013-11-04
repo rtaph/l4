@@ -12,10 +12,8 @@
     <title>
         <?php echo $pageTitle ?>
     </title>
-
-    <?php echo HTML::style( 'http://ass3.axcoto.com/css/purecss.css?'. time()); ?>
-    <?php echo HTML::style( '/css/style.css?' . time()); ?>
-    <?php //echo HTML::style( 'js/colorbox/colorbox.css'); ?>
+    
+    <?php echo $stylesheet;?>
 
     <meta property="og:title" content="Axcoto - We turn ideas into websites" />
     <meta property="og:type" content="website" />

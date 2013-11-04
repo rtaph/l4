@@ -28,27 +28,38 @@ class BaseController extends Controller {
 			));
 			View::composer('layout.sugoi', function ($view) {
 				$view->with('environment', $_SERVER['SERVER_NAME'] === self::URL_DEV? 'dev':'prod' );
+				
+				$asset = Config::get('app.asset');
+				if (!empty($asset['js']) && is_array($asset['js'])) {
+					$javascript = [];
+					foreach ($asset['js'] as $file) {
+						if ($environment == 'dev') {
+							$javascript[] = HTML::script('/js' . $file);
+						} else {
+							$hash = Config::get('asset.js_hash');
+							$javascript[] = HTML::script('/js/asset-' . $hash . '.js');
+						}
+					}
+					$view->width('javascript', implode("\n", $javascript));
+				}
+
+				if (!empty($asset['css']) && is_array($asset['css'])) {
+					$css = [];
+					foreach ($asset['css'] as $file) {
+						if ($environment == 'dev') {
+							$css[] = HTML::style('/css' . $file);
+						} else {
+							$hash = Config::get('asset.css_hash');
+							$css[] = HTML::style('/css/styleshet-' . $hash . '.js');
+						}
+					}
+					$view->width('styleshet', implode("\n", $css));		
+				}
+
+				
+
 			});
 
-			View::composer('layout.javascript', function ($view) {
-				$asset = Config::get('app.asset');
-				$javascript = [];
-				if (empty($asset['js']) || !is_array($asset['js'])) {
-					return '';
-				}
-
-				foreach ($asset['js'] as $file) {
-					if ($environment == 'dev') {
-						$javascript[] = HTML::script('/js' . $file);
-					} else {
-						$hash = Config::get('asset.hash');
-						$javascript[] = HTML::script('/js/asset-' . $hash . '.js');
-					}
-					
-				}
-
-				return implode("\n", $javascript);
-			})
 			
 		}
 	}
