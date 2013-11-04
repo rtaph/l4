@@ -195,6 +195,10 @@ return array(
 			'/jquery.terminal-0.7.7.min.js',
 			'/graph.js',
 			'/axcoto.js'
+		],
+		'css' => [
+			'/css/purecss.css',
+    	'/css/style.css'
 		]
 	)
 

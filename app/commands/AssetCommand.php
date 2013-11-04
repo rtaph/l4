@@ -62,11 +62,28 @@ class AssetCommand extends Command {
 		}
 		$javascript = implode("\n", $javascript);
 		$hash = md5($javascript);
-		file_put_contents(app_path('config/asset.php'), "<?php return ['hash' => '$hash'];");
 		file_put_contents(public_path("js/asset-{$hash}.js"), $javascript);
 		file_put_contents(public_path("js/asset.js"), $javascript);
 		$this->info("Generate {public_path('js/asset.js')}");
 		$this->info("Generate {public_path('js/asset-{$hash}.js')}");
+
+		if (!empty($asset['css']) && is_array($asset['css'])) {
+			$css = [];
+			foreach ($asset['css'] as $file) {
+				// $javascript[] = file_get_contents(app_path('public/js/'))
+				$css[] = file_get_contents(public_path($file));
+			}
+			$css = implode("\n", $css);
+			$css_hash = md5($css);
+			file_put_contents(app_path('config/asset.php'), "<?php return ['hash' => '$hash'];");
+			file_put_contents(public_path("css/stylesheet-{$hash}.css"), $css);
+			file_put_contents(public_path("css/stylesheet.css"), $css);
+			$this->info("Generate {public_path('css/stylesheet.css')}");
+			$this->info("Generate {public_path('css/stylesheet-{$hash}.css')}");
+		}
+		
+		file_put_contents(app_path('config/asset.php'), "<?php return ['js_hash' => '$hash', 'css_hash' => '{$css_hash}'];");
+		
 	}
 
 	/**
