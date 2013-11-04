@@ -31,15 +31,23 @@ class BaseController extends Controller {
 				$view->with('environment', $environment);
 				
 				$asset = Config::get('app.asset');
+				$cdn = Config::get('app.cdn');
+				
+				//Just try to use an empty CDN. nothing hurt here :-)
+				//Just to make sure $cdn is not empty :-)
+				if (!is_array($cdn)) {
+					$cdn = array_fill(0, 3, '');
+				}
+
 				if (!empty($asset['js']) && is_array($asset['js'])) {
 					$javascript = [];
 					if ($environment == 'dev') {
 						foreach ($asset['js'] as $file) {
-							$javascript[] = HTML::script('/js' . $file);
+							$javascript[] = HTML::script($cdn[0] . '/js' . $file);
 						}
 					} else {
 						$hash = Config::get('asset.js_hash');
-						$javascript[] = HTML::script('/js/asset-' . $hash . '.js');
+						$javascript[] = HTML::script($cdn[0] . '/js/asset-' . $hash . '.js');
 					}
 					$view->with('javascript', implode("\n", $javascript));
 				}
@@ -49,20 +57,15 @@ class BaseController extends Controller {
 					
 					if ($environment == 'dev') {
 						foreach ($asset['css'] as $file) {
-							$css[] = HTML::style($file);
+							$css[] = HTML::style($cdn[1] . $file);
 						}					
 					} else {
 						$hash = Config::get('asset.css_hash');
-						$css[] = HTML::style('/css/stylesheet-' . $hash . '.css');
+						$css[] = HTML::style($cdn[1] . '/css/stylesheet-' . $hash . '.css');
 					}
 					$view->with('stylesheet', implode("\n", $css));		
 				}
-
-				
-
 			});
-
-			
 		}
 	}
 
