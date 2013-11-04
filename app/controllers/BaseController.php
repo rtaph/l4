@@ -33,26 +33,27 @@ class BaseController extends Controller {
 				$asset = Config::get('app.asset');
 				if (!empty($asset['js']) && is_array($asset['js'])) {
 					$javascript = [];
-					foreach ($asset['js'] as $file) {
-						if ($environment == 'dev') {
+					if ($environment == 'dev') {
+						foreach ($asset['js'] as $file) {
 							$javascript[] = HTML::script('/js' . $file);
-						} else {
-							$hash = Config::get('asset.js_hash');
-							$javascript[] = HTML::script('/js/asset-' . $hash . '.js');
 						}
+					} else {
+						$hash = Config::get('asset.js_hash');
+						$javascript[] = HTML::script('/js/asset-' . $hash . '.js');
 					}
 					$view->with('javascript', implode("\n", $javascript));
 				}
 
 				if (!empty($asset['css']) && is_array($asset['css'])) {
 					$css = [];
-					foreach ($asset['css'] as $file) {
-						if ($environment == 'dev') {
+					
+					if ($environment == 'dev') {
+						foreach ($asset['css'] as $file) {
 							$css[] = HTML::style($file);
-						} else {
-							$hash = Config::get('asset.css_hash');
-							$css[] = HTML::style('/css/styleshet-' . $hash . '.js');
-						}
+						}					
+					} else {
+						$hash = Config::get('asset.css_hash');
+						$css[] = HTML::style('/css/styleshet-' . $hash . '.css');
 					}
 					$view->with('stylesheet', implode("\n", $css));		
 				}
