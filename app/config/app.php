@@ -185,6 +185,17 @@ return array(
 		'ass1.axcoto.com',
 		'ass2.axcoto.com',
 		'ass3.axcoto.com',
+	),
+
+	'asset' => array(
+		'js' => [
+			'/d3.v2.min.js',
+			'/jquery-1.10.1.min.js',
+			'/jquery.mousewheel.js',
+			'/jquery.terminal-0.7.7.min.js',
+			'/graph.js',
+			'/axcoto.js'
+		]
 	)
 
 );

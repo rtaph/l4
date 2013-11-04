@@ -11,3 +11,4 @@
 |
 */
 Artisan::add(new Axcoto\Server\ChownCommand);
+Artisan::add(new Axcoto\Util\AssetCommand);
