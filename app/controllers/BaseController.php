@@ -27,7 +27,8 @@ class BaseController extends Controller {
 				'pageTitle' => 'Axcoto - We turn ideas into website'
 			));
 			View::composer('layout.sugoi', function ($view) {
-				$view->with('environment', $_SERVER['SERVER_NAME'] === self::URL_DEV? 'dev':'prod' );
+				$environment = $_SERVER['SERVER_NAME'] === self::URL_DEV? 'dev':'prod';
+				$view->with('environment', $environment);
 				
 				$asset = Config::get('app.asset');
 				if (!empty($asset['js']) && is_array($asset['js'])) {
@@ -40,20 +41,20 @@ class BaseController extends Controller {
 							$javascript[] = HTML::script('/js/asset-' . $hash . '.js');
 						}
 					}
-					$view->width('javascript', implode("\n", $javascript));
+					$view->with('javascript', implode("\n", $javascript));
 				}
 
 				if (!empty($asset['css']) && is_array($asset['css'])) {
 					$css = [];
 					foreach ($asset['css'] as $file) {
 						if ($environment == 'dev') {
-							$css[] = HTML::style('/css' . $file);
+							$css[] = HTML::style($file);
 						} else {
 							$hash = Config::get('asset.css_hash');
 							$css[] = HTML::style('/css/styleshet-' . $hash . '.js');
 						}
 					}
-					$view->width('styleshet', implode("\n", $css));		
+					$view->with('stylesheet', implode("\n", $css));		
 				}
 
 				
