@@ -21,60 +21,75 @@ class HomeController extends BaseController {
 
     public function mine() {
         $data = array(
-                'group' => 1, 'name' => 'Vinh', 'size' => 24,
+                'group' => 1, 'name' => 'Vinh', 'size' => 28, 'icon' => 'me.jpg',
                 'nodes' => array(
                     [
-                        'group' => 2, 'name' => 'Product', 'size' => 16,
+                        'group' => 2, 'name' => 'Product', 'size' => 20,
                         'nodes' => array(
-                            ['group' => 3, 'name' => 'Slidy', 'size' => 12],
-                            ['group' => 3, 'name' => 'Ukify', 'size' => 12],
-                            ['group' => 3, 'name' => 'Moment Gallery', 'size' => 12],
+                            [
+                                'group' => 3, 'name' => 'Slidy', 'size' => 14,
+                                'url' => 'http://codecanyon.net/user/kureikain/portfolio?ref=kureikain'
+                            ],
+                            [
+                                'group' => 3, 'name' => 'Ukify', 'size' => 14,
+                                'url' => 'http://codecanyon.net/user/kureikain/portfolio?ref=kureikain'
+                            ],
+                            [
+                                'group' => 3, 'name' => 'Moment Gallery', 'size' => 14,
+                                'url' => 'http://codecanyon.net/user/kureikain/portfolio?ref=kureikain'
+                            ],
                         ) 
                     ],
 
                     [
-                        'group' => 2, 'name' => 'Apps', 'size' => 16,
+                        'group' => 2, 'name' => 'Apps', 'size' => 20,
                         'nodes' => array(
-                            ['group' => 4, 'name' => 'Noty.IM', 'size' => 16 ],
-                            ['group' => 4, 'name' => 'Meme Storm', 'size' => 16 ],
-                            ['group' => 4, 'name' => 'Xinh.So', 'size' => 16 ],
+                            [
+                                'group' => 4, 'name' => 'Noty.IM', 'size' => 20,
+                                'url' => 'http://noty.im'
+                            ],
+                            [
+                                'group' => 4, 'name' => 'Meme Storm', 'size' => 20,
+                                'url' => 'https://itunes.apple.com/us/app/meme-storm/id601632226?mt=8' 
+                            ],
+                            ['group' => 4, 'name' => 'Xinh.So', 'size' => 20 ],
                         )   
                     ],
 
                     [
-                        'group' => 2, 'name' => 'Language', 'size' => 16,
+                        'group' => 2, 'name' => 'Language', 'size' => 20,
                         'nodes' => array(
                             [
-                                'group' => 3, 'name' => 'PHP', 'size' => 12,
+                                'group' => 3, 'name' => 'PHP', 'size' => 14, 'icon' => 'php.gif',
                                 'nodes' => array(
-                                    ['group' => 3, 'name' => 'Laravel', 'size' => 12],
-                                    ['group' => 3, 'name' => 'WordPress', 'size' => 12],
-                                    ['group' => 3, 'name' => 'Kohana', 'size' => 12],
-                                    ['group' => 3, 'name' => 'Zend Framework', 'size' => 12],
+                                    ['group' => 5, 'name' => 'Laravel', 'size' => 14],
+                                    ['group' => 5, 'name' => 'WordPress', 'size' => 14],
+                                    ['group' => 5, 'name' => 'Kohana', 'size' => 14],
+                                    ['group' => 5, 'name' => 'Zend Framework', 'size' => 14],
                                 )
                             ],
                             [
-                                'group' => 3, 'name' => 'Ruby', 'size' => 12,
+                                'group' => 3, 'name' => 'Ruby', 'size' => 14, 'icon' => 'ruby.png'
                             ],
                             [
-                                'group' => 3, 'name' => 'JavaScript', 'size' => 12
+                                'group' => 3, 'name' => 'JavaScript', 'size' => 14
                             ],
                             [
-                                'group' => 3, 'name' => 'Lua', 'size' => 12
+                                'group' => 3, 'name' => 'Lua', 'size' => 14, 'icon' => 'lua.png'
                             ],
                             [
-                                'group' => 3, 'name' => 'Go', 'size' => 12
+                                'group' => 3, 'name' => 'Go', 'size' => 14, 'icon' => 'go.png'
                             ],
                             [
-                                'group' => 3, 'name' => 'Rust', 'size' => 12
+                                'group' => 3, 'name' => 'Rust', 'size' => 14, 'icon' => 'rust.png'
                             ],
                         )
                     ],
                     [
-                        'group' => 2, 'name' => 'About', 'size' => 16
+                        'group' => 2, 'name' => 'About', 'size' => 20
                     ],
                     [
-                        'group' => 2, 'name' => 'Poem', 'size' => 16
+                        'group' => 2, 'name' => 'Poem', 'size' => 20
                     ],    
                 )
         );
@@ -88,10 +103,11 @@ class HomeController extends BaseController {
     * Build the sub array into graph with point and link.
     */
     protected function _buildNode($array, $level=0) {
+        static $_group = 0;
         array_push($this->_graph['nodes'], array_combine(
-            ['group', 'name', 'size'], 
+            ['group', 'name', 'size', 'icon', 'url'], 
             [
-                $array['group'], $array['name'], $array['size'],
+                $_group++, $array['name'], $array['size'], empty($array['icon'])? '':$array['icon'], empty($array['url'])? '':$array['url']
             ]
         ));
         $node_id = count($this->_graph['nodes']) - 1;

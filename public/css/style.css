@@ -886,6 +886,12 @@ button:hover
   stroke-width:1.5px;
 }
 
+.node image
+{
+  stroke:#fff;
+  stroke-width:1.5px;
+}
+
 .center-node
 {
   fill:red;
