@@ -53,7 +53,7 @@ class BaseController extends Controller {
 						}					
 					} else {
 						$hash = Config::get('asset.css_hash');
-						$css[] = HTML::style('/css/styleshet-' . $hash . '.css');
+						$css[] = HTML::style('/css/stylesheet-' . $hash . '.css');
 					}
 					$view->with('stylesheet', implode("\n", $css));		
 				}
