@@ -43,7 +43,7 @@ class BaseController extends Controller {
 					$javascript = [];
 					if ($environment == 'dev') {
 						foreach ($asset['js'] as $file) {
-							$javascript[] = HTML::script($cdn[0] . '/js' . $file);
+							$javascript[] = HTML::script('/js' . $file);
 						}
 					} else {
 						$hash = Config::get('asset.js_hash');
@@ -57,7 +57,7 @@ class BaseController extends Controller {
 					
 					if ($environment == 'dev') {
 						foreach ($asset['css'] as $file) {
-							$css[] = HTML::style($cdn[1] . $file);
+							$css[] = HTML::style($file);
 						}					
 					} else {
 						$hash = Config::get('asset.css_hash');
