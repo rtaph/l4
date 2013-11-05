@@ -56,7 +56,7 @@ class HomeController extends BaseController {
     }
 
 	public function showWelcome() {
-        $products = Config::get('bucket.products')
+        $products = Config::get('bucket.products');
 
 		return $this->layout->nest('content', 'home.index', array(
             'products' => $products

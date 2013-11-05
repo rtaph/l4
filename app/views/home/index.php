@@ -47,7 +47,7 @@
     </div>    
 
     <div class="toolbar">
-        <h2 id="portfolio-link"><a href="#graph">Graph</a> myself. Or try <a href="#terminal">my terminal</a></h2>
+        <h2 id="portfolio-link"><a href="#graph">Graph</a> myself. Or try <a href="/terminal">my terminal</a></h2>
     </div>
 
     <div class='pure-g-r'>
@@ -57,11 +57,13 @@
 
             </div>
         </div>
+        <!--
         <div class="pure-u-1 terminalme">
             <div class="main" id="terminalme">
 
             </div>
         </div>
+      -->
     </div>
 
 </div> <!-- // .content -->

@@ -18,24 +18,25 @@
     <h2>Here are my stuffs. If you like them, then <a href="<?php echo url('contact') ?>">hire me</a>
   </div>	
   
+  <?php foreach ($products as $category) : ?>
   <div class="pure-g-r">
     
     <aside class="pure-u-1-3 sidebar">
       <dl>
-          <dt>Wordpress</dt>
+          <dt><?php echo $category['title'];?></dt>
           <dd>
-            By the time, we buid websie/app use Wordpress! We enjoy the work!
-            And we release some open source componenet as well to give back community! Open source rules!          
+            <?php echo $category['desc'];?>
           </dd>
       </dl>        
     </aside>
 
     <section class="pure-u-2-3">
-      <h4 class="header1">Axcoto Slideshow</h4>
+      <?php foreach ($category['nodes'] as $node) :?>
+      <h4 class="header1"><?php echo $node['title'];?></h4>
       <p>
-        Alow you upload slideshow, upload many item at the same time via flash upload<br />
-        
+        <?php echo $node['desc'];?>
       </p>
+      <?php endforeach;?>
       
       <h4 class="header1">Modal Register</h4>
       <p>
@@ -54,58 +55,7 @@
         A very clear elegant theme
       </p>
     </section>    
-  </div>  
-    
-  <div class="pure-g-r">  
-    <aside class="pure-u-1-3 sidebar">
-      <dl>
-          <dt>JavaScript</dt>
-          <dd>
-            I do love jQuery! <br />And here i prove my great skill
-          </dd>
-        </dl>
-    </aside>
-
-    <section class="pure-u-2-3">    
-      <h4 class="header1">jQuery Flash Message Plugin</h4>
-      <p>
-        Sometime, you need some notification which will auto disappear 
-      </p>
-
-      <h4 class="header1">Age Plugin</h4>
-      <p>
-        Yelp, you know! You write: I am Vinh Nguyen, a <strong>23</strong> years old....ooops
-        and next you, you must change it! Next year, you will be 24!<br />
-        Use this plugin to solve it
-        <a href=""></a>
-      </p>
-      
-    </section>
-    
   </div>
-
-  <div class="pure-g-r">  
-    <aside class="pure-u-1-3 sidebar" >
-      <dl>
-          <dt>Facebook application</dt>
-          <dd>
-            I build application for fun in free time! <br />
-            They're small but funny! Try it and we will love what i did
-          </dd>
-          
-        </dl>
-    </aside>
-    <section class="pure-u-2-3">
-      <h4 class="header1">Name Meaning</h4>
-      <p>
-      Alow you get your name meaning and andd it to sidebar
-      </p>
-
-      <h4 class="header1">Me And Friend</h1 >
-      <p>
-        Answer funny question about your friend
-      </p>
-    </section>
-	</div>  
-	
+  <?php endforeach;?>
+    
 </div>

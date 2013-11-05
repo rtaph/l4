@@ -19,26 +19,10 @@
     <div class="toolbar">
         <h2>Here are my stuffs. If you like my experimental, <a href="<?php echo url('contact') ?>">hire me</a></h2>
     </div>
-
-    <h4 class="header1"><a href="#">How to build a shorten URL service with WordPress</a></h4>
+    <?php foreach ($lab as $node) : ?>
+    <h4 class="header1"><a href="#"><?php echo $node['title'];?></a></h4>
     <p class="triangle-border">
-        This is a tutorial which I wrote for WpTuts. Check it here
+        <?php echo $node['desc'];?>
     </p>
-
-    <h4 class="header1"><a href="#">Gitolite Gui</a></h4>
-    <p class="triangle-border">
-        If you use git olite
-    </p>
-    
-    <h4 class="header1"><a href="#">Online Font Converter</a></h4>
-    <p>
-        I owned a VPS, and because of this I can do anythign with it. I made this small tool to help people
-        converting their own TTF or OTF fonts to EOT&amp; WOFF fonts.
-    </p>
-    
-    <h4 class="header1"><a href="#">Facebook Emoticon</a></h4>
-    <p>
-        This is a bookmarklet to insert emoticon into facebook chat box easily. 
-    </p>
-
+    <?php endforeach;?>
 </div>

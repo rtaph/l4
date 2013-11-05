@@ -30,8 +30,9 @@ class LabController extends BaseController {
      */
 
     public function showWelcome() {
+        $lab = Config::get('bucket.lab');
         $this->layout->nest('content', 'lab.index', array(
-            
+            'lab' => $lab
         ));
     }
 

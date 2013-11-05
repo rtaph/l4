@@ -263,6 +263,7 @@ return array(
                 'price' => 8,
             ),
         ),
+
 	'portfolio' => array(
             array(
                 'file' => 'asia.png',
@@ -444,6 +445,54 @@ return array(
                 'url' => 'axcoto.com',
                 'info' => 'Development',
             ),
-        )
+        ),
+
+	'products' => array(
+		array(
+			'title' => 'Wordpress',
+			'desc' => 'By the time, we buid websie/app use Wordpress! We enjoy the work! And we release some open source componenet as well to give back community! Open source rules!',
+			'nodes' => array(
+				['title' => 'Axcoto Slideshow', 'desc' => 'Alow you upload slideshow, upload many item at the same time via flash upload'],
+				['title' => 'Modal Register', 'desc' => 'Alow member register on your site via a modal box! Then you can use Simple Modal Login to help user can'],			
+			)	
+		),
+		array(
+			'title' => 'JavaScript',
+			'desc'  => 'I do love jQuery! And here i prove my great skill',
+			'nodes' => array(
+				[
+					'title' => 'Age Plugin',
+					'desc'	=> 'Yelp, you know! You write: I am Vinh Nguyen, a 23 years old....ooops and next you, you must change it! Next year, you will be 24!
+Use this plugin to solve it'
+				]
+			)				
+		),
+		array(
+			'title' => 'Facebook application',
+			'desc'	=> 'I build application for fun in free time! They\'re small but funny! Try it and we will love what i did',
+			'nodes' => array(
+				['title' => 'Name Meaning', 'desc' => 'Alow you get your name meaning and andd it to sidebar'],
+				['title' => 'Me And Friend', 'desc' => 'Answer funny question about your friend '],
+			)
+		)
+
+	),
+
+	'lab' => array(
+		[
+			'title' => 'How to build a shorten URL service with WordPress',
+    	'desc'  => 'This is a tutorial which I wrote for WpTuts. Check it here'
+    ],
+    
+    [
+    	'title' => 'Gitolite Gui',
+    	'desc'	=> 'If you use git olite'
+    ],
+
+    [
+    	'title' => 'Facebook Emoticon',
+    	'desc'	=> 'This is a bookmarklet to insert emoticon into facebook chat box easily. '
+    ]
+	)
         
 );
