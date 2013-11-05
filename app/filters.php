@@ -35,6 +35,7 @@ App::after(function($request, $response)
   // $response->headers->set('Last-Modified', 'Sun, 20 Oct 2013 20:48:35 GMT');
   $max_age = 60 * 60 * 24 * 30 ; //1month
   $response->headers->set('Cache-Control', "max-age={$max_age}, public, must-revalidate");
+  $response->headers->set('X-Axcoto-Rev', 23);
   // $response->headers->set('Etag', md5($etag));
 });
 

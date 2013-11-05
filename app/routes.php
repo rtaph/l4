@@ -17,6 +17,7 @@ Route::get('/', function()
 });
 
 Route::get('/', 'HomeController@showWelcome');
+Route::get('/terminal', 'HomeController@showTerminal');
 Route::get('/lol', 'HomeController@showWelcomeOld');
 Route::get('/contact', 'HomeController@showContact');
 Route::get('/shop', 'ShopController@showWelcome');

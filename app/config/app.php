@@ -193,12 +193,16 @@ return array(
 			'/jquery-1.10.1.min.js',
 			'/jquery.mousewheel.js',
 			'/jquery.terminal-0.7.7.min.js',
+			'/unveil.js',
 			'/graph.js',
-			'/axcoto.js'
+			'/axcoto.js',
+			'/terminal.js',
+			'/ga.js',
 		],
 		'css' => [
 			'/css/purecss.css',
-    	'/css/style.css'
+    	'/css/style.css',
+    	'/css/jquery.terminal.css',
 		]
 	)
 

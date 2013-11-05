@@ -15,7 +15,7 @@
 
     <div class='pure-g-r'>
         <div class="pure-u-1 terminalme">
-            <div class="main" id="terminalme">
+            <div class="terminalme" id="terminalme">
 
             </div>
         </div>
