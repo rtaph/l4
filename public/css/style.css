@@ -826,7 +826,11 @@ button:hover
 .terminalme {
   width: 100%;
   height: 600px;
-  font-family: "Terminal Dosis", "Arial";
+  /*font-family: "Terminal Dosis", "Arial";*/
+}
+
+.terminalme .cmd, .terminalme .cmd a {
+  /*font-family: "Terminal Dosis", "Arial";*/
 }
 
 #overlay

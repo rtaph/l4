@@ -22,3 +22,4 @@
     </div>
 
 </div> <!-- // .content -->
+<script type="text/json" id="bucket"><?php echo json_encode($bucket);?></script>

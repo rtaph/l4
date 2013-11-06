@@ -62,11 +62,61 @@ class HomeController extends BaseController {
             'products' => $products
         ));
     }
+    
+    /**
+    *
+    */
+    function _buildBucket($array) {
+        $mod_array = [];
+        if (!is_array($array)) {
+            return $array;
+        }
+        foreach ($array as $key=>$value) {
+            if (is_numeric($key)) {
+                if (!empty($value['title'])) {
+                    $assoc_key = $value['title'];
+                } else if (!empty($value['name'])) {
+                    $assoc_key = $value['name'];
+                } else if (!empty($value['file'])) {
+                    $assoc_key = $value['file'];
+                } else {
+                    $assoc_key = 'Item ' . $key; 
+                }
+                $mod_array[$assoc_key] = $this->_buildBucket($value);  
+                continue;
+            }
+
+            // echo "$key <br />\n";
+            if (is_string($key)) {
+                $mod_array[$key] = $this->_buildBucket($value);
+                continue;
+            }
+        }
+        return $mod_array;
+    }
 
     public function showTerminal() {
-
+        $bucket = Config::get('bucket');
+      //   $bucket = array(
+      //   '/' => {
+      //   'home' : { 'kurei' : $.parseJSON($('#bucket').text()) },
+      //   'etc'  : [ 'rc.conf' ],
+      //   // 'srv'  : { 
+      //   //   'http': {
+      //   //     'axcoto.com': ['index.php', 'artisant'], 
+      //   //     'log.axcoto.com': ['README'], 
+      //   //     'noty.im': ['public', 'gem']
+      //   //   }, 
+      //   //   'ftp' : 'ftp' 
+      //   // },
+      //   'bin'  : [ 'help', 'ls', 'wget'],
+      //   'usr'  : [ 'bin', 'sbin'],
+      //   'var'  : {'cache': 'nginx', 'rails': ['cache', 'logs'], 'backup' : ['rb']}
+      // }
+      //   )
+        $bucket = $this->_buildBucket($bucket);        
         return $this->layout->nest('content', 'home.terminal', array(
-            'products' => []
+            'bucket' => $bucket
         ));
     }
 
