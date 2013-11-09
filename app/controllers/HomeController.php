@@ -14,6 +14,7 @@ class HomeController extends BaseController {
 	|
 	*/
 
+
 	public function showWelcomeOld()
 	{
 		return 'hello there,' . date('Y-m-d h:i:s') . "\n" . time();
