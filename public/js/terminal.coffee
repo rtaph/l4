@@ -1,3 +1,31 @@
+class Node 
+  constructor: (@name, @prop=false) ->
+    console.log @name
+    console.log @prop
+    @_isDir = true
+    if $.isArray(@prop)
+      @_isDir = true
+    
+    if @prop == false
+      @_isDir = true
+
+    @_isDir = false if @prop.info
+    @_isDir = false if @prop.desc  
+    # if (typeof @prop.info == 'undefined' and typeof @prop.desc == 'undefined')    
+    # @_isDir = @prop is false || (typeof @prop.info == 'undefined' and typeof @prop.desc == 'undefined')    
+        
+  isDir: () ->
+    @_isDir
+
+  info: () ->
+    @prop        
+  
+  echo: () -> 
+    if this.isDir()
+      return "dr--r--r--\tkurei\tstaff\t\t" + @name
+    else
+      return "-r-xr--r--\tkurei\tstaff\t\t" + @name
+
 class Bucket 
   constructor: ->
     @bucket = $.parseJSON($('#bucket').text()) 
@@ -90,7 +118,13 @@ class Bucket
     
     if ['/', '.', '..'].indexOf(path.charAt(0)) < 0
       path = [@wd, path].join('/')
-    return this.pluck(path)
+    item = this.pluck(path)
+    ls = []
+    if $.isArray(item)
+      ls.push(new Node(i)) for i in item
+    else     
+      ls.push(new Node(dir, prop)) for dir,prop of item
+    return ls
 
   pwd: ->
     if @wd == @home then '~' else @wd
@@ -159,11 +193,12 @@ class Terminal
 
     ls: (term, opt) ->
       ls = @bucket.ls(opt[0])
-      if $.isArray(ls)
-        term.echo("\t" + ls[i]) for i in ls
-        return true
+      # if $.isArray(ls)
+      #   term.echo("\t" + ls[i]) for i in ls
+      #   return true
         
-      term.echo("\t" + dir) for dir, prop of ls
+      # term.echo("\t" + dir) for dir, prop of ls
+      term.echo(node.echo()) for node in ls
       return true
     
     pwd: (term, opt) ->
