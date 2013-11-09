@@ -83,12 +83,14 @@ class HomeController extends BaseController {
                 } else {
                     $assoc_key = 'Item ' . $key; 
                 }
+                $assoc_key = str_replace(" ", '_', $assoc_key);
                 $mod_array[$assoc_key] = $this->_buildBucket($value);  
                 continue;
             }
 
             // echo "$key <br />\n";
             if (is_string($key)) {
+                $key = str_replace(" ", '_', $key);
                 $mod_array[$key] = $this->_buildBucket($value);
                 continue;
             }
@@ -98,23 +100,21 @@ class HomeController extends BaseController {
 
     public function showTerminal() {
         $bucket = Config::get('bucket');
-      //   $bucket = array(
-      //   '/' => {
-      //   'home' : { 'kurei' : $.parseJSON($('#bucket').text()) },
-      //   'etc'  : [ 'rc.conf' ],
-      //   // 'srv'  : { 
-      //   //   'http': {
-      //   //     'axcoto.com': ['index.php', 'artisant'], 
-      //   //     'log.axcoto.com': ['README'], 
-      //   //     'noty.im': ['public', 'gem']
-      //   //   }, 
-      //   //   'ftp' : 'ftp' 
-      //   // },
-      //   'bin'  : [ 'help', 'ls', 'wget'],
-      //   'usr'  : [ 'bin', 'sbin'],
-      //   'var'  : {'cache': 'nginx', 'rails': ['cache', 'logs'], 'backup' : ['rb']}
-      // }
-      //   )
+        $bucket = array('/' => array(
+            'home'   => [ 'kurei' => $this->_buildBucket($bucket)],
+            'etc'    => [ 'rc.conf' ],
+            'srv'    => [
+              'http' => [
+                'axcoto.com'     => ['index.php', 'artisant'], 
+                'log.axcoto.com' => ['README'], 
+                'noty.im'       => ['public', 'gem']
+              ], 
+              'ftp' => 'ftp' 
+            ],
+            'bin'  => [ 'help', 'ls', 'wget'],
+            'usr'  => [ 'bin', 'sbin'],
+            'var'  => [ 'cache' => 'nginx', 'rails' => ['cache', 'logs'], 'backup' => ['rb'] ]
+        ));
         $bucket = $this->_buildBucket($bucket);        
         return $this->layout->nest('content', 'home.terminal', array(
             'bucket' => $bucket
