@@ -47,7 +47,12 @@ class DeployCommand extends Command {
 		//SSH to server
 
 		//Checkout the code
-
+		$dir = md5(time() . uniqid());
+		$bash = "
+		cd /tmp
+		mkdir $dir
+		
+		";
 		//Restart nginx. fpm if needed.	
 	}
 

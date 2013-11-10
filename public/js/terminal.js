@@ -10,8 +10,6 @@ Node = (function() {
   function Node(prop, name) {
     this.prop = prop;
     this.name = name != null ? name : false;
-    console.log(this.name);
-    console.log(this.prop);
     this._isDir = true;
     if (typeof this.prop === 'string') {
       this.name = this.prop;
@@ -173,7 +171,6 @@ Bucket = (function() {
     if (((item.name != null) || (item.title != null)) && ((item.info != null) || (item.desc != null))) {
       return [new Node(item)];
     }
-    console.log('dir');
     for (dir in item) {
       prop = item[dir];
       ls.push(new Node(prop, dir));
@@ -323,7 +320,6 @@ Terminal = (function() {
       }
       if (ls.length === 1 && ls[0] instanceof Node) {
         ls = ls[0];
-        console.log(ls.content() + "sas");
         term.echo("[[b;#faff6b;#000]" + ls.content() + "]");
         return true;
       }

@@ -4,7 +4,8 @@
 {
   font-family:Museo300;
   src:local(Museo-300), url(../fonts/Museo300-Regular.otf?);
-  font-weight:700;
+  font-weight:700; 
+
 }
 
 @font-face
@@ -823,16 +824,15 @@ button:hover
   height:700px;
 }
 
-.terminalme {
+/*.terminalme {
   width: 100%;
-  height: 600px;
-  /*font-family: "Terminal Dosis", "Arial";*/
+  font-family: "Terminal Dosis", "Arial";
 }
-
-.terminalme .cmd, .terminalme .cmd a {
-  /*font-family: "Terminal Dosis", "Arial";*/
+*/
+/*.terminalme .cmd, .terminalme .cmd a {
+  font-family: "Terminal Dosis", "Arial";
 }
-
+*/
 #overlay
 {
   width:100%;

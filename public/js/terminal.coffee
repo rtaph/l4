@@ -3,8 +3,6 @@ String.prototype.paddingLeft = (paddingValue) ->
 
 class Node 
   constructor: (@prop, @name=false) ->
-    console.log @name
-    console.log @prop
     @_isDir = true
     
     # passing a single name in prop. this is a directory. store its name
@@ -125,7 +123,6 @@ class Bucket
     if (item.name? or item.title?) and (item.info? or item.desc?)
       return [new Node(item)]
     
-    console.log('dir')
     ls.push(new Node(prop, dir)) for dir,prop of item
     return ls
 
@@ -218,7 +215,6 @@ class Terminal
       return "File not found" if !ls? || ls.length == 0
       if ls.length == 1 and ls[0] instanceof Node
         ls = ls[0]
-        console.log(ls.content() + "sas") 
         term.echo("[[b;#faff6b;#000]" + ls.content() + "]")
         return true    
       return [opt[0], "is a directory"].join ' '
