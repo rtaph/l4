@@ -79,5 +79,4 @@ class App
             
             return true
 
-do ($ = jQuery) ->
-    $(document).ready -> new App "frontpage"
+(($ = jQuery) -> $(document).ready -> new App "frontpage")()

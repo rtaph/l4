@@ -185,6 +185,9 @@ return array(
 		'//ass1.axcoto.com',
 		'//ass2.axcoto.com',
 		'//ass3.axcoto.com',
+		// '//axcoto.dev',
+		// '//axcoto.dev',
+		// '//axcoto.dev',
 	),
 
 	'asset' => array(

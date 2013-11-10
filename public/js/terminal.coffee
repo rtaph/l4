@@ -227,7 +227,7 @@ class Terminal
       term.echo("echo 'Message body' | mail -s 'Subject' ")
       return true
 
-do ($ = jQuery) ->
+(($ = jQuery) ->
   bucket = new Bucket($('#bucket').text())  
   bucket = {shop: [], products:[], lab: [], work: []} if typeof @bucket != 'object'
 
@@ -240,3 +240,4 @@ Make sure to check out file system wtih `ls /` too ;)
 : :: :`.  .''  ..'' .; :: :' .; :\n
 :_;:_;:_,._;`.__.'`.__.':_;`.__.'\n                                 
       ", name: 'kurei', height: 600})
+)()
