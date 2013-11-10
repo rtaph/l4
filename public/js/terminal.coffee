@@ -1,19 +1,27 @@
+String.prototype.paddingLeft = (paddingValue) ->
+  return String(paddingValue + this).slice(-paddingValue.length);
+
+
 class Node 
-  constructor: (@name, @prop=false) ->
+  constructor: (@prop, @name=false) ->
     console.log @name
     console.log @prop
     @_isDir = true
-    if $.isArray(@prop)
-      @_isDir = true
     
-    if @prop == false
-      @_isDir = true
+    # passing a single name in prop. this is a directory. store its name
+    if typeof @prop == 'string'
+      @name = @prop 
+      return true
 
-    @_isDir = false if @prop.info
-    @_isDir = false if @prop.desc  
-    # if (typeof @prop.info == 'undefined' and typeof @prop.desc == 'undefined')    
-    # @_isDir = @prop is false || (typeof @prop.info == 'undefined' and typeof @prop.desc == 'undefined')    
-        
+    # passing an object of prop, if a key of info or desc exist, could be a file.
+    if typeof @prop == 'object' and (@prop.info? or @prop.desc?)
+      @_isDir = false
+      if @name == false
+        @name = @prop.title if @prop.title?
+        @name = @prop.name if @prop.name?
+        @name = @prop.file if @prop.file?
+      return true
+
   isDir: () ->
     @_isDir
 
@@ -21,10 +29,13 @@ class Node
     @prop        
   
   echo: () -> 
-    if this.isDir()
-      return "dr--r--r--\tkurei\tstaff\t\t" + @name
-    else
-      return "-r-xr--r--\tkurei\tstaff\t\t" + @name
+    return (if this.isDir() then "d" else "-") + "r-xr-xr-x\tkurei\tstaff\t\t" + @name.length.toString().paddingLeft("      ") + "\t" + @name
+  
+  # Output file's content
+  content: () ->
+    if this.isDir() 
+      return false
+    (value if key is 'info' or key is 'desc') for key, value of @prop
 
 class Bucket 
   constructor: ->
@@ -120,10 +131,16 @@ class Bucket
       path = [@wd, path].join('/')
     item = this.pluck(path)
     ls = []
+    
     if $.isArray(item)
       ls.push(new Node(i)) for i in item
-    else     
-      ls.push(new Node(dir, prop)) for dir,prop of item
+      return ls
+
+    if (item.name? or item.title?) and (item.info? or item.desc?)
+      return [new Node(item)]
+    
+    console.log('dir')
+    ls.push(new Node(prop, dir)) for dir,prop of item
     return ls
 
   pwd: ->
@@ -209,9 +226,11 @@ class Terminal
     cat: (term, opt) ->
       return "Missing file name" if opt.length == 0
       ls = @bucket.ls(opt.join('').trim())
-      return "File not found" if !ls? 
-      if typeof ls is 'object' 
-        (term.echo(value) if key is 'info' or key is 'desc') for key, value of ls
+      return "File not found" if !ls? || ls.length == 0
+      if ls.length == 1 and ls[0] instanceof Node
+        ls = ls[0]
+        console.log(ls.content() + "sas") 
+        term.echo(ls.content())
         return true    
       return [opt[0], "is a directory"].join ' '
     
@@ -224,8 +243,10 @@ class Terminal
       return true
 
 do ($ = jQuery) ->
-  new Terminal(
-      greetings: "Welcome to ",
-      name: 'kurei',
-      height: 600,
-    )
+  new Terminal(greetings: "Welcome \n
+ .--.                   .-.      \n
+: .; :                 .' `.     \n
+:    :.-.,-. .--.  .--.`. .'.--. \n
+: :: :`.  .''  ..'' .; :: :' .; :\n
+:_;:_;:_,._;`.__.'`.__.':_;`.__.'\n                                 
+      ", name: 'kurei', height: 600)
