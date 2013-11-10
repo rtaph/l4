@@ -1,7 +1,6 @@
 String.prototype.paddingLeft = (paddingValue) ->
   return String(paddingValue + this).slice(-paddingValue.length);
 
-
 class Node 
   constructor: (@prop, @name=false) ->
     console.log @name
@@ -29,7 +28,9 @@ class Node
     @prop        
   
   echo: () -> 
-    return (if this.isDir() then "d" else "-") + "r-xr-xr-x\tkurei\tstaff\t\t" + @name.length.toString().paddingLeft("      ") + "\t" + @name
+    # color:#e67e22;background-color:#000
+    return if this.isDir() then "[[;#e67e22;#000]d]r-xr-xr-x\t[[b;#2ecc71;#000]kurei\tstaff]\t\t" + @name.length.toString().paddingLeft("      ") + "\t[[;#e67e22;#000]" + @name + "]"
+    return "[[;#e67e22;#]-r-xr-xr-x]\t[[b;#2ecc71;#000]kurei\tstaff]\t\t" + @name.length.toString().paddingLeft("      ") + "\t[[;#b94a48;#000]" + @name + "]"
   
   # Output file's content
   content: () ->
@@ -38,23 +39,8 @@ class Node
     (value if key is 'info' or key is 'desc') for key, value of @prop
 
 class Bucket 
-  constructor: ->
-    @bucket = $.parseJSON($('#bucket').text()) 
-      # '/' : 
-        # 'home' : { 'kurei' : $.parseJSON($('#bucket').text()) }
-        # 'etc'  : [ 'rc.conf' ]
-        # 'srv'  : { 
-        #   'http': {
-        #     'axcoto.com': ['index.php', 'artisant'],
-        #     'log.axcoto.com': ['README']
-        #     'noty.im': ['public', 'gem']
-        #   }, 
-        #   'ftp' : 'ftp' 
-        # },
-        # 'bin'  : [ 'help', 'ls', 'wget']
-        # 'usr'  : [ 'bin', 'sbin']
-        # 'var'  : {'cache': 'nginx', 'rails': ['cache', 'logs'], 'backup' : ['rb']}
-      
+  constructor: (json)->
+    @bucket = $.parseJSON(json) 
     @stack = ['/', 'home', 'kurei'] # stack folder
     @home = '/home/kurei' # home dir, will be mapped to ~
     @wd = '/home/kurei' # working dir 
@@ -147,13 +133,11 @@ class Bucket
     if @wd == @home then '~' else @wd
   
 class Terminal
-  constructor: (option) -> 
-    @bucket = new Bucket()
-    @bucket = {shop: [], products:[], lab: [], work: []} if typeof @bucket != 'object'
-    
+  constructor: (@bucket, option) ->     
     t = this
     $('.terminalme').terminal( (input, term) =>
-        input = 'help' if input == ''
+        input = 'help' if input.trim() == ''
+        input = 'help' if !input?
         _cmd = t.parse_command(input)
         try 
           result = t.sh[_cmd.c].call(t, term, _cmd.o)
@@ -161,7 +145,7 @@ class Terminal
           return true
         catch e 
           term.error(new String(e))
-        term.echo 'available command: help, uname, contact, ls, product, lab, echo, mail'
+        # term.echo 'available command: help, uname, contact, ls, product, lab, echo, mail'
         return true
       , 
       $.extend(option, {prompt :  (p) -> p(['[kurei@axcoto.com]', t.bucket.pwd(), '➜ '].join(' '))})
@@ -197,6 +181,11 @@ class Terminal
     whoami: (term, opt) ->
       term.echo("kurei")
       return true
+
+    find: (term, opt) ->
+      return "find search_term" if opt is false
+      term.echo("Google in a new tab :-) " + opt.join(' '))
+      return true 
     
     whereami: (term, opt) ->
       term.echo("Your Ip: ")
@@ -204,8 +193,8 @@ class Terminal
 
     help: (term, opt) ->
       commands = []
-      (commands.push(c) if c != 'not_found') for c of @sh
-      term.echo("available commands: " + commands.join(', '))
+      (commands.push("[[b;#fff;#f89406;] " + c + " ]") if c != 'not_found') for c of @sh
+      term.echo("Available commands:\n\t" + commands.join(', '))
       return true
 
     ls: (term, opt) ->
@@ -230,7 +219,7 @@ class Terminal
       if ls.length == 1 and ls[0] instanceof Node
         ls = ls[0]
         console.log(ls.content() + "sas") 
-        term.echo(ls.content())
+        term.echo("[[b;#faff6b;#000]" + ls.content() + "]")
         return true    
       return [opt[0], "is a directory"].join ' '
     
@@ -243,10 +232,15 @@ class Terminal
       return true
 
 do ($ = jQuery) ->
-  new Terminal(greetings: "Welcome \n
+  bucket = new Bucket($('#bucket').text())  
+  bucket = {shop: [], products:[], lab: [], work: []} if typeof @bucket != 'object'
+
+  new Terminal(bucket, {greetings: "[[;#2ecc71;#000]Welcome, let type `help` to get around.]\n
+Make sure to check out file system wtih `ls /` too ;)    
+\n    
  .--.                   .-.      \n
 : .; :                 .' `.     \n
 :    :.-.,-. .--.  .--.`. .'.--. \n
 : :: :`.  .''  ..'' .; :: :' .; :\n
 :_;:_;:_,._;`.__.'`.__.':_;`.__.'\n                                 
-      ", name: 'kurei', height: 600)
+      ", name: 'kurei', height: 600})
