@@ -14,7 +14,7 @@
         <h2 id="portfolio-link">Me in a shell</h2>
     </div>
     <p>
-        This is created with the amazing <a href="http://terminal.jcubic.pl/examples.php" target="blank">jQuery Plugin Terminal</a>. My implementation is available here <a href="https://github.com/axcoto/l4/blob/master/public/js/terminal.coffee">terminal.coffee of Axcoto</a>
+        This is created with the amazing <a href="http://terminal.jcubic.pl/examples.php" target="blank">jQuery Plugin Terminal</a>. My implementation is available here <a href="https://github.com/axcoto/l4/blob/master/public/js/terminal.coffee" target="_blank">terminal.coffee of Axcoto</a>
     </p>
     <div class='pure-g-r'>
         <div class="pure-u-1">
