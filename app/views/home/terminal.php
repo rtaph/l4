@@ -6,13 +6,16 @@
     <p>
         I try to live a simply, own less thing, give more. I love Japanese art. Practice Kendo sometimes and watch anime with my lovely `spouse` every weekends. Not going to drop this habit. I trust in the Lord with all my heart.
     </p>
+
 </hgroup>
 
 <div class="content" id="frontpage">    
     <div class="toolbar">
         <h2 id="portfolio-link">Me in a shell</h2>
     </div>
-
+    <p>
+        This is created with the amazing <a href="http://terminal.jcubic.pl/examples.php" target="blank">jQuery Plugin Terminal</a>. My implementation is available here <a href="https://github.com/axcoto/l4/blob/master/public/js/terminal.coffee">terminal.coffee of Axcoto</a>
+    </p>
     <div class='pure-g-r'>
         <div class="pure-u-1">
             <div class="terminalme" id="terminalme">
