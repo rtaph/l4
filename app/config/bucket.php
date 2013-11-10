@@ -386,17 +386,29 @@ Use this plugin to solve it'
 		[
 			'title' => 'How to build a shorten URL service with WordPress',
     	'desc'  => 'This is a tutorial which I wrote for WpTuts. Check it here'
-    ],
-    
-    [
-    	'title' => 'Gitolite Gui',
-    	'desc'	=> 'If you use git olite'
-    ],
+        ],
+        
+        [
+        	'title' => 'Gitolite Gui',
+        	'desc'	=> 'If you use git olite'
+        ],
 
-    [
-    	'title' => 'Facebook Emoticon',
-    	'desc'	=> 'This is a bookmarklet to insert emoticon into facebook chat box easily. '
-    ]
-	)
+        [
+        	'title' => 'Facebook Emoticon',
+        	'desc'	=> 'This is a bookmarklet to insert emoticon into facebook chat box easily. '
+        ]
+	),
+
+    'documents' => array(
+        [
+            'title' => 'about',
+            'desc'  => 'Hi, I am Vinh. A Catholic. A Programmer. A person in love.',
+        ],
+        [
+            'title' => 'bookmark',
+            'desc'  => "sa<br />sasa"
+        ],
+
+    )
         
 );
