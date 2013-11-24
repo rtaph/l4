@@ -114,6 +114,8 @@ class Bucket
     if ['/', '.', '..'].indexOf(path.charAt(0)) < 0
       path = [@wd, path].join('/')
     item = this.pluck(path)
+    return throw new Error("Invalid directory") if typeof item == 'undefined'
+
     ls = []
     
     if $.isArray(item)
@@ -132,7 +134,7 @@ class Bucket
 class Terminal
   constructor: (@bucket, option) ->     
     t = this
-    $('.terminalme').terminal( (input, term) =>
+    $('#terminalme').terminal( (input, term) =>
         input = 'help' if input.trim() == ''
         input = 'help' if !input?
         _cmd = t.parse_command(input)
@@ -141,8 +143,8 @@ class Terminal
           return term.error(new String(result)) if result != true
           return true
         catch e 
-          term.error(new String(e))
-        # term.echo 'available command: help, uname, contact, ls, product, lab, echo, mail'
+          # term.error(new String(e))
+          term.echo 'available command: help, uname, contact, ls, product, lab, echo, mail'
         return true
       , 
       $.extend(option, {prompt :  (p) -> p(['[kurei@axcoto.com]', t.bucket.pwd(), '➜ '].join(' '))})
@@ -170,7 +172,7 @@ class Terminal
       if typeof opt[0] == 'undefined' and opt[0] == ''
         return true
       if true == $result = @bucket.cd(opt[0])
-        term.echo "You are in : " + this.bucket.pwd()  
+        term.echo("You are in : " + this.bucket.pwd())  
         return true
       else 
         return $result  
@@ -195,19 +197,19 @@ class Terminal
       return true
 
     ls: (term, opt) ->
-      ls = @bucket.ls(opt[0])
-      # if $.isArray(ls)
-      #   term.echo("\t" + ls[i]) for i in ls
-      #   return true
-        
-      # term.echo("\t" + dir) for dir, prop of ls
-      term.echo(node.echo()) for node in ls
-      return true
+      return true if typeof term == 'undefined'
+      try 
+        ls = @bucket.ls(opt[0])
+        console.log ls
+        # return "Invalod folder" if !ls?
+        (console.log(node);term.echo(node.echo()) if typeof term != 'undefined' ) for node in ls
+        return true
+      catch error
+        return error
     
     pwd: (term, opt) ->
       term.echo("\t" + @bucket.pwd())
       return true
-    
 
     cat: (term, opt) ->
       return "Missing file name" if opt.length == 0
@@ -232,12 +234,14 @@ class Terminal
   bucket = {shop: [], products:[], lab: [], work: []} if typeof @bucket != 'object'
 
   new Terminal(bucket, {greetings: "[[;#2ecc71;#000]Welcome, let type `help` to get around.]\n
-Make sure to check out file system wtih `ls /` too ;)    
-\n    
+Make sure to check out file system wtih `ls /` too ;)\n
+\n
  .--.                   .-.      \n
 : .; :                 .' `.     \n
 :    :.-.,-. .--.  .--.`. .'.--. \n
 : :: :`.  .''  ..'' .; :: :' .; :\n
-:_;:_;:_,._;`.__.'`.__.':_;`.__.'\n                                 
-      ", name: 'kurei', height: 600})
+:_;:_;:_,._;`.__.'`.__.':_;`.__.' "
+      ,name: 'kurei'
+      , height: 300
+      , onResize: (term) -> return term})
 )()
