@@ -1,1 +1,1 @@
-<?php return ['js_hash' => '4336c0dcee96196d88b3c5995e567e42', 'css_hash' => '17d2e7c9327e77a7a43522ce1afc79a1'];
+<?php return ['js_hash' => 'c33f8c55355b595080e83feacdd9fdfd', 'css_hash' => '17d2e7c9327e77a7a43522ce1afc79a1'];
