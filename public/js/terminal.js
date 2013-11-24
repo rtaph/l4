@@ -377,7 +377,7 @@
     return new Terminal(bucket, {
       greetings: "[[;#2ecc71;#000]Welcome, let type `help` to get around.]\nMake sure to check out file system wtih `ls /` too ;)\n\n .--.                   .-.      \n: .; :                 .' `.     \n:    :.-.,-. .--.  .--.`. .'.--. \n: :: :`.  .''  ..'' .; :: :' .; :\n:_;:_;:_,._;`.__.'`.__.':_;`.__.' ",
       name: 'kurei',
-      height: 300,
+      height: 600,
       onResize: function(term) {
         return term;
       }

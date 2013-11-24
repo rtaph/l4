@@ -242,6 +242,6 @@ Make sure to check out file system wtih `ls /` too ;)\n
 : :: :`.  .''  ..'' .; :: :' .; :\n
 :_;:_;:_,._;`.__.'`.__.':_;`.__.' "
       ,name: 'kurei'
-      , height: 300
+      , height: 600
       , onResize: (term) -> return term})
 )()
