@@ -18,7 +18,7 @@
     </p>
     <div class='pure-g-r'>
         <div class="pure-u-1">
-            <div class="terminalme" id="terminalme">
+            <div id="terminalme">
 
             </div>
         </div>

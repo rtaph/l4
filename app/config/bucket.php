@@ -384,7 +384,7 @@ Use this plugin to solve it'
 
 	'lab' => array(
 		[
-			'title' => 'How to build a shorten URL service with WordPress',
+			'title' => 'Build a shorten URL service with WordPress',
     	'desc'  => 'This is a tutorial which I wrote for WpTuts. Check it here'
         ],
         
