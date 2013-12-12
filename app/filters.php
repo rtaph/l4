@@ -36,6 +36,7 @@ App::after(function($request, $response)
   $max_age = 60 * 60 * 24 * 30 ; //1month
   $response->headers->set('Cache-Control', "max-age={$max_age}, public, must-revalidate");
   $response->headers->set('X-Axcoto-Rev', 23);
+  $response->headers->set('Server', 'Axcoto');
   // $response->headers->set('Etag', md5($etag));
 });
 
