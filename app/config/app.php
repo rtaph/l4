@@ -182,9 +182,7 @@ return array(
 	),
 
 	'cdn' => array(
-		'//ass1.axcoto.com',
-		'//ass2.axcoto.com',
-		'//ass3.axcoto.com',
+		'//axcoto.com',
 		// '//axcoto.dev',
 		// '//axcoto.dev',
 		// '//axcoto.dev',
