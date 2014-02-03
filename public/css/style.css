@@ -793,24 +793,38 @@ button:hover
 
 .myproduct__logo
 {
-  width:256px;
-  height:256px;
-  background:url(/images/product-spr.png) no-repeat;
+  width:192px;
+  height:192px;
+  background:url(/images/product-spr_small.png) no-repeat;
 }
 
+.myproduct__logo.qslider 
+{
+  background-position: 0px -576px;
+}
 .myproduct__logo.notyim
 {
-  background-position:0 0;
+  background-position:0 1px;
 }
 
 .myproduct__logo.memestorm
 {
-  background-position:0 -256px;
+  background-position:0 -192px;
 }
 
 .myproduct__logo.xinhso
 {
-  background-position:0 -513px;
+  background-position:0 -384px;
+}
+
+.myproduct__logo.nct
+{
+  background-position:0 -768px;
+}
+
+.myproduct__logo.gocast
+{
+  background-position:0 -960px;
 }
 
 .d3me

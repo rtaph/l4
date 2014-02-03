@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="description" content="Axcoto offers top-notch web developement services" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="<?php echo asset('http://ass1.axcoto.com/images/axcoto-fav.png') ?>" type="image/png" />
-    <link rel="shortcut icon" href="<?php echo asset('http://ass2.axcoto.com/images/axcoto-fav.png') ?>" type="image/png" />
+    <link rel="icon" href="<?php echo asset('/images/axcoto-fav.png') ?>" type="image/png" />
+    <link rel="shortcut icon" href="<?php echo asset('/images/axcoto-fav.png') ?>" type="image/png" />
 
     <title>
         <?php echo $pageTitle ?>
@@ -21,7 +21,7 @@
     <meta property="og:image" content="http://ass4.axcoto.com/assets/ax.png" />
     <meta property="og:site_name" content="Axcoto" />
     <meta property="fb:admins" content="624804112" />
-    <meta property="og:description" content="Axcoto is a free lancer service focus in web development. I also sell ready-to-use code library such as WordPress plugin, jQuery plugin, custom Rails/PHP apps." />
+    <meta property="og:description" content="Axcoto is a free lancer service focus in web&amp; mobile development. I also sell ready-to-use code library such as WordPress plugin, jQuery plugin, custom Rails/PHP apps." />
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
