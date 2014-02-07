@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="description" content="Axcoto offers top-notch web developement services" />
+    <meta name="description" content="Axcoto offers top-notch web developement services">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="<?php echo secure_asset('/images/axcoto-fav.png') ?>" type="image/png" />
-    <link rel="shortcut icon" href="<?php echo secure_asset('/images/axcoto-fav.png') ?>" type="image/png" />
+    <link rel="icon" href="/favicon.ico" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/png">
 
     <title>
         <?php echo $pageTitle ?>
@@ -15,13 +15,13 @@
     
     <?php echo $stylesheet;?>
 
-    <meta property="og:title" content="Axcoto - We turn ideas into websites" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="<?php echo secure_url('/')?>" />
-    <meta property="og:image" content="<?php echo secure_asset('assets/ax.png')?>" />
-    <meta property="og:site_name" content="Axcoto" />
-    <meta property="fb:admins" content="624804112" />
-    <meta property="og:description" content="Axcoto is a free lancer service focus in web&amp; mobile development. I also sell ready-to-use code library such as WordPress plugin, jQuery plugin, custom Rails/PHP apps." />
+    <meta property="og:title" content="Axcoto - We turn ideas into websites">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<?php echo secure_url('/')?>">
+    <meta property="og:image" content="<?php echo secure_asset('assets/ax.png')?>">
+    <meta property="og:site_name" content="Axcoto">
+    <meta property="fb:admins" content="624804112">
+    <meta property="og:description" content="Axcoto is a free lancer service focus in web&amp; mobile development. I also sell ready-to-use code library such as WordPress plugin, jQuery plugin, custom Rails/PHP apps.">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
