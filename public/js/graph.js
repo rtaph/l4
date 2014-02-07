@@ -96,7 +96,7 @@
             if (typeof d.icon === 'undefined' || d.icon == '') {
                 return "http://axcoto.com/images/axcoto-fav.png"
             }
-            return '//ass2.axcoto.com/images/graph/' + d.icon
+            return '//axcoto.com/images/graph/' + d.icon
           })
           .attr("x", -45)
           .attr("y", -45)
