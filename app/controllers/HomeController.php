@@ -13,7 +13,15 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-
+  
+  public function showCv() {
+    return "=====================\n
+      I'm Vinh Nguyen. A programmer. I write PHP, Ruby, Go Lang, Objective C.\n
+      http://axcoto.com\n
+      http://github.com/kureikain\n
+      I made QSlider and GoCast.Im      
+=====================\n";
+  }
 
 	public function showWelcomeOld()
 	{
